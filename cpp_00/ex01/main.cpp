@@ -6,11 +6,25 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:52:46 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/22 17:15:13 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:56:20 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+
+Contact createContact()
+{
+    Contact contact;
+    contact.setData();
+    return contact;
+}
+
+Contact getContact()
+{
+    Contact contact;
+    contact.getData();
+    return contact;
+}
 
 int main(void)
 {
@@ -22,13 +36,11 @@ int main(void)
     std::cout << "Please enter a command: ";
     std::cin >> command;
     if(command == "ADD")
-        add_contact(&phonebook);
+        phonebook.add_contact(createContact());
     else if(command == "SEARCH")
-        std::cout << "SEARCH" << std::endl;
+        phonebook.display_contact();
     else if(command == "EXIT")
-        std::cout << "EXIT" << std::endl;
-    else if(command == "DISPLAY")
-        display_contact(&phonebook);
+        return 0;
     else
         std::cout << "Invalid command" << std::endl;
     goto start;
