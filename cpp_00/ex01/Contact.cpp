@@ -6,11 +6,21 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:21:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/24 15:30:50 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:25:41 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+
+int Contact::is_empty()
+{
+    if(this->first_name.empty() && this->last_name.empty() && this->nickname.empty() && this->phone_number.empty() && this->darkest_secret.empty())
+    {
+        std::cout << "You must fill all fields" << std::endl;
+        return 1;
+    }
+    return 0;
+}
 
 void Contact::setData()
 {
@@ -24,6 +34,8 @@ void Contact::setData()
     std::cin >> this->phone_number;
     std::cout << "Please enter the contact's darkest secret: ";
     std::cin >> this->darkest_secret;
+    if(this->is_empty())
+        this->setData();
 }
 
 void Contact::getData()

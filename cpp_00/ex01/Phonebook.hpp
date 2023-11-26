@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:31:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/24 14:56:18 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:19:51 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Contact {
         std::string nickname;
         std::string phone_number;
         std::string darkest_secret; 
+        int is_empty();
     public :
         void getData();
         void setData();
