@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:52:46 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/26 19:48:20 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:37:05 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Contact createContact()
 {
     Contact contact;
+    contact.setId();
     contact.setData();
     return contact;
 }
@@ -35,7 +36,7 @@ int main(void)
     std::cout << "Welcome to Phonebook" << std::endl;
     std::cout << "The available commands are: ADD, SEARCH and EXIT" << std::endl;
     std::cout << "Please enter a command: ";
-    std::cin >> command;
+    std::getline(std::cin, command);
     if(command == "ADD")
         phonebook.add_contact(createContact());
     else if(command == "SEARCH")

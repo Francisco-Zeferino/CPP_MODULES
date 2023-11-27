@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:31:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/26 20:19:51 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:31:47 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 class Contact {
     private:
+        int id;
         std::string first_name;
         std::string last_name;
         std::string nickname;
@@ -24,6 +25,8 @@ class Contact {
     public :
         void getData();
         void setData();
+        void setId();
+        int checkEmpty(Contact contact);
 };
 
 class Phonebook {
