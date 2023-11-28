@@ -6,12 +6,14 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:31:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/27 12:31:47 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:16:55 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
+#include <string>
+#include <cstdlib>
 
 class Contact {
     private:
@@ -23,7 +25,8 @@ class Contact {
         std::string darkest_secret; 
         int is_empty();
     public :
-        void getData();
+        void getPhonebookData();
+        void getContactData();
         void setData();
         void setId();
         int checkEmpty(Contact contact);
@@ -31,8 +34,10 @@ class Contact {
 
 class Phonebook {
     private:
-        Contact contacts[8];       
+        Contact contacts[8];
+        int get_arrSize(Contact contacts[]);    
     public:
         void add_contact(Contact contacts);
+        void display_all();
         void display_contact();
 };
