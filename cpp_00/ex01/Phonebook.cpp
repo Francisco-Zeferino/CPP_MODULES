@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:55:49 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/28 14:23:30 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:51:55 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,6 @@ void Phonebook::display_contact()
         std::cout << "Invalid id" << std::endl;
     else if(!this->contacts[id].checkEmpty(this->contacts[id]))
         this->contacts[id].getContactData();
+    else
+        std::cout << "Given ID is not registered" << std::endl;
 }

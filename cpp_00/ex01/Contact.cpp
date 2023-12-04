@@ -6,11 +6,11 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:21:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/28 14:18:37 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:44:25 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "Contact.hpp"
 
 int Contact::checkEmpty(Contact contact)
 {

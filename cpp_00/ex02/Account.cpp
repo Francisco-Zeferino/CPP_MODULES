@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:47:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/11/28 15:43:50 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:03:00 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,35 @@ int Account::getNbAccounts()
 
 int Account::getTotalAmount()
 {
-    return (_totalAmount);    
+    return (_totalAmount);
 }
 
 int Account::getNbDeposits()
 {
-    return (_totalNbDeposits);    
+    return (_totalNbDeposits);
 }
 
 int  Account::getNbWithdrawals()
 {
-    return (_totalNbWithdrawals);    
+    return (_totalNbWithdrawals);
 }
 
-int main(void)
-{
-    Account a(42);
-    Account b(24);
-    a.makeDeposit(5);
-    a.makeDeposit(10);
-    b.makeDeposit(10);
-    a.makeWithdrawal(10);
-    Account::displayAccountsInfos();
-}
+// int main(void)
+// {
+//     Account a(42);
+//     Account b(54);
+//     Account c(957);
+//     Account d(432);
+//     Account e(1234);
+//     Account f(0);
+//     Account g(754);
+//     Account h(16576);
+//     Account::displayAccountsInfos();
+//     a.makeDeposit(5);
+//     b.makeDeposit(10);
+//     Account::displayAccountsInfos();
+//     a.makeWithdrawal(10);
+//     b.makeWithdrawal(765);
+//     Account::displayAccountsInfos();
+    
+// }
