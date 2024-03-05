@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:25:15 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/12/04 16:14:54 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/03/05 15:10:40 by francisco         #+#    #+#             */
+/*   Updated: 2024/03/05 15:50:25 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "Weapon.hpp"
 
-class HumanA
-{
-    private:
-        std::string _name;
+class HumanA {
+    private :
         Weapon &_weapon;
-    public:
-        HumanA(std::string name, Weapon &weapon);
-        ~HumanA(void);
-        void attack(void);
+        std::string _name;
+    public :
+        HumanA(Weapon &weapon, std::string name);
+        void attack();
 };

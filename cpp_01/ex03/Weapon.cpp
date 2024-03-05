@@ -3,32 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:24:48 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:48:27 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/03/05 15:05:00 by francisco         #+#    #+#             */
+/*   Updated: 2024/03/05 15:26:06 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-const std::string &Weapon::getType(void)
-{
-    return (this->_type);
+Weapon::Weapon(std::string weapon) {
+    _type = weapon;
 }
 
-void Weapon::setType(std::string type)
-{
-    this->_type = type;
+void Weapon::setType(std::string newType) {
+    _type = newType;
 }
 
-Weapon::Weapon(std::string type)
-{
-    this->_type = type;
-    std::cout << "Weapon " << this->_type << " has been created" << std::endl;
-}
-
-Weapon::~Weapon()
-{
-    std::cout << "Weapon has been destroyed" << std::endl;
+const std::string Weapon::getType() {
+    return _type;
 }
