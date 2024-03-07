@@ -1,7 +1,7 @@
 NAME = ThisGame
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp HumanA.cpp  Weapon.cpp #HumanB.cpp
+SRCS = main.cpp HumanA.cpp  Weapon.cpp HumanB.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

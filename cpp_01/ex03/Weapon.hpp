@@ -6,10 +6,11 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:02:57 by francisco         #+#    #+#             */
-/*   Updated: 2024/03/05 15:26:13 by francisco        ###   ########.fr       */
+/*   Updated: 2024/03/07 18:37:42 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 #include <string>
 
