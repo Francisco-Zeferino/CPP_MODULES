@@ -3,62 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 13:13:39 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/12/06 13:50:06 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/03/11 14:07:32 by francisco         #+#    #+#             */
+/*   Updated: 2024/03/13 15:15:20 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl()
-{
-    _level[0] = "DEBUG";
-    _level[1] = "INFO";
-    _level[2] = "WARNING";
-    _level[3] = "ERROR";
-    _complain[0] = &Harl::debug;
-    _complain[1] = &Harl::info;
-    _complain[2] = &Harl::warning;
-    _complain[3] = &Harl::error;
-    return ;
+Harl::Harl() {
+    _complainLevel[0] = "DEBUG";
+    _complainLevel[1] = "INFO";
+    _complainLevel[2] = "WARNING";
+    _complainLevel[3] = "ERROR";
+    harlPtr[0] = &Harl::debug;
+    harlPtr[1] = &Harl::info;
+    harlPtr[2] = &Harl::warning;
+    harlPtr[3] = &Harl::error;
 }
 
-void Harl::debug(void)
-{
-    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
-    return ;
+Harl::~Harl(){
 }
 
-void Harl::info(void)
-{
+void Harl::debug(){
+    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
+}
+
+void Harl::info(){
     std::cout << "I cannot believe adding extra bacon costs more money. You didnt put enough bacon in my burger! If you did, I wouldnt be asking for more!" << std::endl;
-    return ;
 }
 
-void Harl::warning(void)
-{
+void Harl::warning(){
     std::cout << "I think I deserve to have some extra bacon for free. Ive been coming for years whereas you started working here since last month." << std::endl;
-    return ;
 }
 
-void Harl::error(void)
-{
+void Harl::error(){
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
-    return ;
 }
 
-Harl::~Harl()
-{
-    return ;
-}
-
-void Harl::complain(std::string level)
-{
-    for (int i = 0; i < 4; i++)
+void Harl::complain(std::string level){
+    for(int i = 0; i < 4; i++)
     {
-        if (level == _level[i])
-            (this->*_complain[i])();
+        if(level == _complainLevel[i])
+            (this->*harlPtr[i])();
     }
 }

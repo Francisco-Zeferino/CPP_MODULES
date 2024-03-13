@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:33:25 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/12/06 13:44:14 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:11:18 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int main(void)
 {
-    Harl harl;
-    std::string level;
-
-    std::cout << "Enter a complaint: ";
-    std::getline(std::cin, level);
-    harl.complain(level);
-    return (0);
+    Harl costumer;
+    costumer.complain("D");
 }
