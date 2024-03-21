@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:50:30 by francisco         #+#    #+#             */
-/*   Updated: 2024/03/18 19:53:55 by francisco        ###   ########.fr       */
+/*   Updated: 2024/03/20 19:47:19 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,17 @@ Fixed::Fixed(){
     fixedPoint = 0;
 }
 
-Fixed::Fixed(Fixed &cpy){
+Fixed::Fixed(Fixed const &cpy){
     std::cout << "Copy assignment operator called" << std::endl;
     *this = cpy;
+}
+
+Fixed::Fixed(int const iNum){
+    fixedPoint = iNum * (1 << fracBits);
+}
+
+Fixed::Fixed(float const fNum){
+    fixedPoint = fNum * (1 << fracBits);
 }
 
 void Fixed::operator=(Fixed const &cpy){
@@ -33,6 +41,19 @@ int Fixed::getRawBits() const{
 
 void Fixed::setRawBits(int const raw){
     fixedPoint = raw;
+}
+
+int Fixed::toInt(void) const{
+    return(fixedPoint / (1 << fracBits));
+}
+
+float Fixed::toFloat(void) const{
+    return(fixedPoint / (1 << fracBits));
+}
+
+std::ostream& operator<<(std::ostream &oStream, const Fixed &fixedFloat){
+    oStream << fixedFloat.toFloat();
+    return(oStream);
 }
 
 Fixed::~Fixed(){
