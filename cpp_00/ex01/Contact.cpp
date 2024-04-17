@@ -33,21 +33,43 @@ int Contact::is_empty()
     return 0;
 }
 
+bool Contact::validPhonenbr()
+{
+    for(int i = 0; i < (int)this->phone_number.length(); i++)
+    {
+        if(!isdigit(phone_number[i]))
+            return false;
+    }
+    return true;
+}
+
+std::string Contact::protectedGetline(std::string displayString)
+{
+    std::string userInputString;
+    std::cout << displayString;
+    if(std::cin.eof())
+        exit(0);
+    std::getline(std::cin, userInputString);
+    return userInputString;
+}
+
+void Contact::trimData()
+{
+    //if(first_name.find_first_of(9,0) != std::string::npos)
+        
+}
+
 void Contact::setData()
 {
-    std::cout << "Please enter the contact's first name: ";
-    std::getline(std::cin, this->first_name); 
-    std::cout << "Please enter the contact's last name: ";
-    std::getline(std::cin, this->last_name); 
-    std::cout << "Please enter the contact's nickname: ";
-    std::getline(std::cin, this->nickname); 
-    std::cout << "Please enter the contact's phone number: ";
-    std::getline(std::cin, this->phone_number); 
-    std::cout << "Please enter the contact's darkest secret: ";
-    std::getline(std::cin, this->darkest_secret);
-    if(this->is_empty())
+    this->first_name = protectedGetline("Please insert your first name :");
+    this->last_name = protectedGetline("Please insert your last name :");
+    this->nickname = protectedGetline("Please insert your nickname :");
+    this->phone_number = protectedGetline("Please insert your phonenumber :");
+    this->darkest_secret = protectedGetline("Please insert your darkest secret :");
+    trimData();
+    if(this->is_empty() || !validPhonenbr())
     {
-        std::cout << "You must fill all fields" << std::endl;
+        std::cout << "You must fill all fields or enter a valid phone number" << std::endl;
         this->setData();
     }
 }

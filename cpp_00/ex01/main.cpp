@@ -24,7 +24,7 @@ int main(void)
 {
     Phonebook phonebook;
     std::string command;
-    while(1)
+    while(!std::cin.eof())
     {
         std::cout << "Welcome to Phonebook" << std::endl;
         std::cout << "The available commands are: ADD, SEARCH and EXIT" << std::endl;

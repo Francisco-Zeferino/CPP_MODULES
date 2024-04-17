@@ -22,7 +22,10 @@ class Contact {
         std::string last_name;
         std::string nickname;
         std::string phone_number;
-        std::string darkest_secret; 
+        std::string darkest_secret;
+        std::string protectedGetline(std::string displayString);
+        bool validPhonenbr();
+        void trimData();
         int is_empty();
     public :
         void getPhonebookData();
