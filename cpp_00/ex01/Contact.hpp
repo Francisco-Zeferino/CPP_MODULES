@@ -25,7 +25,7 @@ class Contact {
         std::string darkest_secret;
         std::string protectedGetline(std::string displayString);
         bool validPhonenbr();
-        void trimData();
+        void trimString(std::string &str);
         int is_empty();
     public :
         void getPhonebookData();

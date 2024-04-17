@@ -53,10 +53,16 @@ std::string Contact::protectedGetline(std::string displayString)
     return userInputString;
 }
 
-void Contact::trimData()
+void Contact::trimString(std::string &str)
 {
-    //if(first_name.find_first_of(9,0) != std::string::npos)
-        
+    long unsigned int val = str.find_last_not_of("\t") + 1;
+
+    if(val == str.size() || val == std::string::npos){
+        val = str.find_first_not_of("\t");
+        str = str.substr(val);
+    }
+    else
+        str.erase(val);
 }
 
 void Contact::setData()
@@ -66,7 +72,10 @@ void Contact::setData()
     this->nickname = protectedGetline("Please insert your nickname :");
     this->phone_number = protectedGetline("Please insert your phonenumber :");
     this->darkest_secret = protectedGetline("Please insert your darkest secret :");
-    trimData();
+    trimString(this->first_name);
+    trimString(this->last_name);
+    trimString(this->nickname);
+    trimString(this->darkest_secret);
     if(this->is_empty() || !validPhonenbr())
     {
         std::cout << "You must fill all fields or enter a valid phone number" << std::endl;
