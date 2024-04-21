@@ -14,7 +14,7 @@
 
 int Contact::checkEmpty(Contact contact)
 {
-    if(contact.is_empty())
+    if(contact.isEmpty())
         return 1;
     return 0;
 }
@@ -26,7 +26,7 @@ void Contact::setId()
     id++;
 }
 
-int Contact::is_empty()
+int Contact::isEmpty()
 {
     if(this->first_name.empty() || this->last_name.empty() || this->nickname.empty() || this->phone_number.empty() || this->darkest_secret.empty())
         return 1;
@@ -76,7 +76,7 @@ void Contact::setData()
     trimString(this->last_name);
     trimString(this->nickname);
     trimString(this->darkest_secret);
-    if(this->is_empty() || !validPhonenbr())
+    if(this->isEmpty() || !validPhonenbr())
     {
         std::cout << "You must fill all fields or enter a valid phone number" << std::endl;
         this->setData();

@@ -31,9 +31,9 @@ int main(void)
         std::cout << "Please enter a command: ";
         std::getline(std::cin, command);
         if(command == "ADD")
-            phonebook.add_contact(createContact());
+            phonebook.addContact(createContact());
         else if(command == "SEARCH")
-            phonebook.display_all();
+            phonebook.displayAll();
         else if(command == "EXIT")
             return 0;
         else

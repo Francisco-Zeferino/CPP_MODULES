@@ -19,9 +19,9 @@
 class Phonebook {
     private:
         Contact contacts[8];
-        int get_arrSize(Contact contacts[]);    
+        int getarrSize(Contact contacts[]);    
     public:
-        void add_contact(Contact contacts);
-        void display_all();
-        void display_contact();
+        void addContact(Contact contacts);
+        void displayAll();
+        void displayContact();
 };

@@ -12,7 +12,7 @@
 
 #include "Phonebook.hpp"
 
-void Phonebook::add_contact(Contact contacts)
+void Phonebook::addContact(Contact contacts)
 {
     static int i = 0;
     if(i == 8)
@@ -21,7 +21,7 @@ void Phonebook::add_contact(Contact contacts)
     i++;
 }
 
-int  Phonebook::get_arrSize(Contact contacts[])
+int  Phonebook::getarrSize(Contact contacts[])
 {
     int i = 0;
     while(i < 8)
@@ -33,15 +33,15 @@ int  Phonebook::get_arrSize(Contact contacts[])
     return(i);
 }
 
-void Phonebook::display_all()
+void Phonebook::displayAll()
 {
-    int arrSize = this->get_arrSize(this->contacts);
+    int arrSize = this->getarrSize(this->contacts);
     for(int i = 0; i < arrSize; i++)
         this->contacts[i].getPhonebookData();
-    this->display_contact();
+    this->displayContact();
 }
 
-void Phonebook::display_contact()
+void Phonebook::displayContact()
 {
     std::string s_id;
     int id;
