@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+#include <cctype>
 
 void Phonebook::addContact(Contact contacts)
 {
@@ -33,6 +34,15 @@ int  Phonebook::getarrSize(Contact contacts[])
     return(i);
 }
 
+bool Phonebook::validId(std::string s_id){
+  
+  for(int i = 0; i < (int)s_id.length(); i++){
+    if(!isdigit(s_id[i]))
+       return false;
+  }
+  return true;
+}
+
 void Phonebook::displayAll()
 {
     int arrSize = this->getarrSize(this->contacts);
@@ -47,6 +57,10 @@ void Phonebook::displayContact()
     int id;
     std::cout << "Put the id: ";
     std::getline(std::cin, s_id);
+    if(!validId(s_id)){
+      std::cout << "Given ID is not valid!" << std::endl;
+      return;
+    }
     id = std::atoi(s_id.c_str());
     if(id < 0 || id > 7)
         std::cout << "Invalid id" << std::endl;

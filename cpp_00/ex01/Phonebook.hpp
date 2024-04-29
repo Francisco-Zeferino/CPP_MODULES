@@ -20,6 +20,7 @@ class Phonebook {
     private:
         Contact contacts[8];
         int getarrSize(Contact contacts[]);    
+        bool validId(std::string s_id);
     public:
         void addContact(Contact contacts);
         void displayAll();
