@@ -108,7 +108,6 @@ void Contact::getContactData()
 
 void Contact::getPhonebookData()
 {
-    showTopBar();
     std::cout << std::setw(10) << std::right << this->id << " | ";
     if(this->first_name.size() > 9)
         std::cout << std::setw(10) << std::right << this->first_name.substr(0, 9) << "." << " | ";

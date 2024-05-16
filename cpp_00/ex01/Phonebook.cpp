@@ -15,7 +15,7 @@
 
 void Phonebook::addContact(Contact contacts)
 {
-    static int i = 0;
+    static int i;
     if(i == 8)
         i = 0;
     this->contacts[i] = contacts;
@@ -34,8 +34,7 @@ int  Phonebook::getarrSize(Contact contacts[])
     return(i);
 }
 
-bool Phonebook::validId(std::string s_id){
-  
+bool Phonebook::validId(std::string s_id){  
   for(int i = 0; i < (int)s_id.length(); i++){
     if(!isdigit(s_id[i]))
        return false;
@@ -45,6 +44,7 @@ bool Phonebook::validId(std::string s_id){
 
 void Phonebook::displayAll()
 {
+    this->contacts[0].showTopBar();
     int arrSize = this->getarrSize(this->contacts);
     for(int i = 0; i < arrSize; i++)
         this->contacts[i].getPhonebookData();
