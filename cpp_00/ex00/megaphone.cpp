@@ -33,6 +33,7 @@ int main(int argc, char **argv)
             }
             i++;
         }
+        std::cout << std::endl;
     }
     else
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";

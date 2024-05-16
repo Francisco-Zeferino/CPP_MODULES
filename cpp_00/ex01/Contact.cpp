@@ -60,7 +60,6 @@ std::string Contact::protectedGetline(std::string displayString)
 void Contact::trimString(std::string &str)
 {
     int i = 0;
-    // int value = 0;
     while(str[i]){
         if(str[i] == '\t' && (unsigned long)i <= str.length()){
             str.erase(str.begin() + i);
