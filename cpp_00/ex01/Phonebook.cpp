@@ -57,7 +57,7 @@ void Phonebook::displayContact()
     int id;
     std::cout << "Put the id: ";
     std::getline(std::cin, s_id);
-    if(!validId(s_id)){
+    if(!validId(s_id) || std::cin.eof()){
       std::cout << "Given ID is not valid!" << std::endl;
       return;
     }

@@ -21,16 +21,20 @@ int Contact::checkEmpty(Contact contact)
 
 void Contact::setId()
 {
-    static int id;
-    this->id = id;
-    id++;
+    static int idx;
+    if(idx >= 8)
+        this->id = 0;
+    else{
+        this->id = idx;
+        idx++;
+    }
 }
 
-int Contact::isEmpty()
+bool Contact::isEmpty()
 {
     if(this->first_name.empty() || this->last_name.empty() || this->nickname.empty() || this->phone_number.empty() || this->darkest_secret.empty())
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
 
 bool Contact::validPhonenbr()
@@ -55,14 +59,16 @@ std::string Contact::protectedGetline(std::string displayString)
 
 void Contact::trimString(std::string &str)
 {
-    long unsigned int val = str.find_last_not_of("\t") + 1;
-
-    if(val == str.size() || val == std::string::npos){
-        val = str.find_first_not_of("\t");
-        str = str.substr(val);
+    int i = 0;
+    // int value = 0;
+    while(str[i]){
+        if(str[i] == '\t' && (unsigned long)i <= str.length()){
+            str.erase(str.begin() + i);
+            if(i != 0)
+                str.insert(i, " ");
+        }
+        i++;
     }
-    else
-        str.erase(val);
 }
 
 void Contact::setData()
@@ -76,6 +82,7 @@ void Contact::setData()
     trimString(this->last_name);
     trimString(this->nickname);
     trimString(this->darkest_secret);
+
     if(this->isEmpty() || !validPhonenbr())
     {
         std::cout << "You must fill all fields or enter a valid phone number" << std::endl;
