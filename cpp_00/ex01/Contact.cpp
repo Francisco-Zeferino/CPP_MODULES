@@ -12,6 +12,15 @@
 
 #include "Contact.hpp"
 
+void Contact::showTopBar(){
+    std::cout << "|-------------------------------------------------|" << std::endl;
+    std::cout << std::setw(10) << std::right << " Index |";
+    std::cout << std::setw(10) << std::right << " First Name |";
+    std::cout << std::setw(10) << std::right << " Last Name |";
+    std::cout << std::setw(10) << std::right << " Nickname |" << std::endl;
+    std::cout << "|-------------------------------------------------|" << std::endl;
+}
+
 int Contact::checkEmpty(Contact contact)
 {
     if(contact.isEmpty())
@@ -99,17 +108,18 @@ void Contact::getContactData()
 
 void Contact::getPhonebookData()
 {
-    std::cout << std::setw(10) << std::right << this->id << "|";
+    showTopBar();
+    std::cout << std::setw(10) << std::right << this->id << " | ";
     if(this->first_name.size() > 9)
-        std::cout << std::setw(10) << std::right << this->first_name.substr(0, 9) << "." << "|";
+        std::cout << std::setw(10) << std::right << this->first_name.substr(0, 9) << "." << " | ";
     else
-        std::cout << std::setw(10) << std::right << this->first_name << "|";
+        std::cout << std::setw(10) << std::right << this->first_name << " | ";
     if(this->last_name.size() > 9)
-        std::cout << std::setw(10) << std::right << this->last_name.substr(0, 9) << "." << "|";
+        std::cout << std::setw(10) << std::right << this->last_name.substr(0, 9) << "." << " | ";
     else
-        std::cout << std::setw(10) << std::right << this->last_name << "|";
+        std::cout << std::setw(10) << std::right << this->last_name << " | ";
     if(this->nickname.size() > 9)
-        std::cout << std::setw(10) << std::right << this->nickname.substr(0, 9) << "." << "|";
+        std::cout << std::setw(10) << std::right << this->nickname.substr(0, 9) << "." << " | ";
     else
         std::cout << std::setw(10) << std::right << this->nickname << std::endl;
 }

@@ -27,6 +27,7 @@ class Contact {
         bool validPhonenbr();
         void trimString(std::string &str);
         bool isEmpty();
+        void showTopBar();
     public :
         void getPhonebookData();
         void getContactData();
