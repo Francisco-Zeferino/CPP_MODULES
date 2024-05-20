@@ -41,14 +41,18 @@ void FileHandler::createNewFile()
 void FileHandler::replace()
 {
     std::string rLine;
-    while(!this->_file.eof())
+    while(std::getline(this->_file, rLine))
     {
-        std::getline(this->_file, rLine);
-        if(rLine.find(this->_s1) != std::string::npos)
+        std::size_t charPos = 0;
+        while(rLine.find(this->_s1, charPos) != std::string::npos)
         {
-            rLine.insert(rLine.find(this->_s1), this->_s2);
-            rLine.erase(rLine.find(this->_s1), rLine.length());
+            charPos = rLine.find(this->_s1, charPos);
+            rLine.erase(rLine.find(this->_s1, charPos), this->_s1.length());
+            rLine.insert(charPos, this->_s2);
+            charPos += _s2.length();
         }
         this->_newFile << rLine << std::endl;
     }
+    _newFile.close();
+    _file.close();
 }
