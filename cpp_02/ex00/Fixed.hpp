@@ -18,9 +18,9 @@ class Fixed {
         Fixed(Fixed &cpy);
         void operator=(const Fixed &cpy);
         ~Fixed();
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
     private :
         int fixedPoint;
         static const int fracBits = 8;
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
 };
