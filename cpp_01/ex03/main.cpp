@@ -6,7 +6,7 @@
 /*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:42:02 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/03/06 20:34:28 by francisco        ###   ########.fr       */
+/*   Updated: 2024/05/20 18:40:58 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
     HumanA bacano(arma, "Zefas");
     HumanB zezoca("Zezoca");
     bacano.attack();
-    arma.setType("AK_55");
+    arma.setType("AK66");
     bacano.attack();
     zezoca.attack();
 }
