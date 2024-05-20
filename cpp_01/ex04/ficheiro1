@@ -1,9 +1,13 @@
-drwxr-xr-x 3 ffilipe- 2023_lisboa  143 May 20 11:39 .
-drwxr-xr-x 9 ffilipe- 2023_lisboa   90 Apr 16 09:52 ..
--rw-r--r-- 1 ffilipe- 2023_lisboa   38 May 20 11:39 ficheiro1
--rw-r--r-- 1 ffilipe- 2023_lisboa   46 May 20 11:38 ficheiro1.replace
--rw-r--r-- 1 ffilipe- 2023_lisboa 2052 May 20 10:32 fileHandling.cpp
--rw-r--r-- 1 ffilipe- 2023_lisboa 1328 Apr 16 09:52 fileHandling.hpp
--rw-r--r-- 1 ffilipe- 2023_lisboa 1419 Apr 16 09:52 main.cpp
--rw-r--r-- 1 ffilipe- 2023_lisboa  268 Apr 16 09:52 Makefile
-drwxr-xr-x 2 ffilipe- 2023_lisboa   27 Apr 16 09:52 .vscode
+total 64
+drwxr-xr-x 3 ffilipe- 2023_lisboa   190 May 20 14:16 .
+drwxr-xr-x 9 ffilipe- 2023_lisboa    90 Apr 16 09:52 ..
+-rw-r--r-- 1 ffilipe- 2023_lisboa     0 May 20 14:17 ficheiro1
+-rw-r--r-- 1 ffilipe- 2023_lisboa     1 May 20 14:17 ficheiro1.replace
+-rw-r--r-- 1 ffilipe- 2023_lisboa  2111 May 20 14:14 fileHandling.cpp
+-rw-r--r-- 1 ffilipe- 2023_lisboa  1328 Apr 16 09:52 fileHandling.hpp
+-rw-r--r-- 1 ffilipe- 2023_lisboa  9720 May 20 14:16 fileHandling.o
+-rw-r--r-- 1 ffilipe- 2023_lisboa  1455 May 20 14:16 main.cpp
+-rw-r--r-- 1 ffilipe- 2023_lisboa  5776 May 20 14:16 main.o
+-rw-r--r-- 1 ffilipe- 2023_lisboa   268 Apr 16 09:52 Makefile
+-rwxr-xr-x 1 ffilipe- 2023_lisboa 24352 May 20 14:16 Sed
+drwxr-xr-x 2 ffilipe- 2023_lisboa    27 Apr 16 09:52 .vscode

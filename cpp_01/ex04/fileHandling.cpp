@@ -34,6 +34,8 @@ void FileHandler::createNewFile()
     if(!this->_file.is_open() || !this->_newFile.is_open())
     {
         std::cout << "Error opening file" << std::endl;
+        if(_file.is_open())
+            _file.close();
         return ;
     }
 }
@@ -51,7 +53,9 @@ void FileHandler::replace()
             rLine.insert(charPos, this->_s2);
             charPos += _s2.length();
         }
-        this->_newFile << rLine << std::endl;
+        this->_newFile << rLine ;
+        if(!_file.eof())
+            _newFile << std::endl;
     }
     _newFile.close();
     _file.close();

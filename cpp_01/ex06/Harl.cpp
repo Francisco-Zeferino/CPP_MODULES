@@ -64,7 +64,7 @@ Harl::~Harl()
 
 void Harl::complain(std::string level)
 {
-    int levelIdentifier = 0;
+    int levelIdentifier = -1;
     for (int i = 0; i < 4; i++)
     {
         if (level == _level[i])
@@ -79,23 +79,17 @@ void Harl::outputMessage(int levelIdentifier)
     {
         case 0:
             (this->*_complain[0])();
-            (this->*_complain[1])();
-            (this->*_complain[2])();
-            (this->*_complain[3])();
-            break;
+            // fall through
         case 1:
             (this->*_complain[1])();
-            (this->*_complain[2])();
-            (this->*_complain[3])();
-            break;
+            // fall through
         case 2:
             (this->*_complain[2])();
-            (this->*_complain[3])();
-            break;
+            // fall through
         case 3:
             (this->*_complain[3])();
             break;
         default:
-            break;
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }

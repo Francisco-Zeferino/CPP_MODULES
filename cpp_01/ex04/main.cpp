@@ -22,7 +22,7 @@ int main(int ac, char **av)
     std::string s1;
     std::string s2;
 
-    if (ac != 4)
+    if (ac != 4 || !av[2][0]|| !av[3][0])
     {
         std::cout << "Error: wrong number of arguments" << std::endl;
         return (1);

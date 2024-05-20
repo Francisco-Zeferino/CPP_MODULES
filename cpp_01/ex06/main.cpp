@@ -14,16 +14,9 @@
 
 int main(int ac, char **av)
 {
-    std::string level = av[1];
-    if (ac != 2)
+    if (ac != 2 || !av[1][0])
         return (1);
     Harl harl;
-    if(level != "DEBUG" && level != "INFO" && level != "WARNING" && level != "ERROR")
-    {
-        std::cout << "Invalid level" << std::endl;
-        std::cout << "Valid levels are: DEBUG, INFO, WARNING, ERROR" << std::endl;
-        return (1);
-    }
-    harl.complain(level);
+    harl.complain(std::string(av[1]));
     return (0);
 }

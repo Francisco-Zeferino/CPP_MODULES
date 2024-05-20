@@ -15,5 +15,5 @@
 int main(void)
 {
     Harl costumer;
-    costumer.complain("D");
+    costumer.complain(0);
 }
