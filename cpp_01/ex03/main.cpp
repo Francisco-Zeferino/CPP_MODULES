@@ -21,5 +21,6 @@ int main(void)
     bacano.attack();
     arma.setType("AK66");
     bacano.attack();
+    zezoca.setWeapon(arma);
     zezoca.attack();
 }
