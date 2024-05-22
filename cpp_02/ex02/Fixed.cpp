@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:25:29 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/05/22 14:39:33 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:04:07 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,62 @@ Fixed &Fixed::operator=(Fixed const &copy){
     return *this;
 }
 
-Fixed Fixed::operator*(Fixed const &a){
-    return(Fixed((this->toFloat() * a.toFloat())));
+bool Fixed::operator==(Fixed const &a) const{
+    return(this->toFloat() == a.toFloat());
 }
 
-bool Fixed::operator>(Fixed const &a){
+bool Fixed::operator!=(Fixed const &a) const{
+    return(this->toFloat() != a.toFloat());
+}
+
+bool Fixed::operator>(Fixed const &a) const{
     return(this->toFloat() > a.toFloat());
 }
 
-bool Fixed::operator<(Fixed const &a){
+bool Fixed::operator>=(Fixed const &a) const{
+    return(this->toFloat() >= a.toFloat());
+}
+
+bool Fixed::operator<(Fixed const &a) const{
     return(this->toFloat() < a.toFloat());
+}
+
+bool Fixed::operator<=(Fixed const &a) const{
+    return(this->toFloat() <= a.toFloat());
+}
+
+Fixed Fixed::operator*(Fixed const &a){
+    return(Fixed((this->toFloat() * a.toFloat())));
 }
 
 Fixed Fixed::operator+(Fixed const &a){
     return(Fixed((this->toFloat() + a.toFloat())));
 }
 
+Fixed &Fixed::operator++(){
+    _fixedNumber++;
+    return(*this);
+}
+
+Fixed Fixed::operator++(int){
+    Fixed temp = *this;
+    ++_fixedNumber;
+    return temp;
+}
+
 Fixed Fixed::operator-(Fixed const &a){
     return(Fixed((this->toFloat() - a.toFloat())));
+}
+
+Fixed &Fixed::operator--(){
+    _fixedNumber--;
+    return(*this);
+}
+
+Fixed Fixed::operator--(int){
+    Fixed temp = *this;
+    --_fixedNumber;
+    return(temp);
 }
 
 Fixed Fixed::operator/(Fixed const &a){
@@ -86,4 +124,12 @@ float Fixed::toFloat(void) const{
 
 int Fixed::toInt(void) const{
     return(_fixedNumber >> _fracBits);
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b){
+    return(a > b ? b : a);
+}
+
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b){
+    return(a > b ? b : a);
 }
