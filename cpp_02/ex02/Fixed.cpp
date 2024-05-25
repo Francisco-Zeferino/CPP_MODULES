@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:25:29 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/05/22 16:04:07 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:21:19 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 const int Fixed::_fracBits = 8;
 
 Fixed::Fixed(): _fixedNumber(0){
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const &copy){
     *this = copy;
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(int const iValue){
@@ -105,7 +105,7 @@ std::ostream &operator<<(std::ostream &output, Fixed const &received){
 }
 
 Fixed::~Fixed(){
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const{
@@ -124,6 +124,14 @@ float Fixed::toFloat(void) const{
 
 int Fixed::toInt(void) const{
     return(_fixedNumber >> _fracBits);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b){
+    return(a > b ? a : b);
+}
+
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b){
+    return(a > b ? a : b);
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b){

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francisco <francisco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:25:36 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/05/22 16:03:30 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:29:09 by francisco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int main()
     std::cout << a << std::endl;
     std::cout << b << std::endl;
 
-    Fixed c = c.min(a,b);
+    Fixed c = Fixed::min(a,b);
+    Fixed d = Fixed::max(c,b);
     std::cout << c << std::endl;
+    std::cout << d << std::endl;
     return 0;
 }
