@@ -6,21 +6,20 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 10:34:15 by francisco         #+#    #+#             */
-/*   Updated: 2024/05/28 15:26:38 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:29:01 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 int main(){
-    ClapTrap a("a");
-    ScavTrap AD("AD");
-    ClapTrap b("b");
+    ClapTrap clapA("a");
+    ScavTrap scav("AD");
+    ClapTrap clapB("b");
+    ScavTrap scavB;
 
-    a.attack("b");
-    b.takeDamage(10);
-    b.attack("a");
-    AD.attack("a");
-    AD.attack("B");
-    b.attack("A");
+    scavB = scav;
+    clapA = clapB;
+    clapA.attack("clapB");
+    scavB.attack("scav");
 }

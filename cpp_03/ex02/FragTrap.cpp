@@ -6,20 +6,40 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:20:16 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/05/28 15:26:15 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:46:21 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(){
+    std::cout << "FragTrap default constructor called" << std::endl;
+}
+
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name){
+    std::cout << "FragTrap constructor called" << std::endl;
     _hitPoints = 100;
     _energyPoints = 100;
     _attackDamage = 30;
 }
 
-FragTrap::~FragTrap(){
+FragTrap::FragTrap(FragTrap &copy){
+    *this = copy;
+    std::cout << "FragTrap copy constructor called" << std::endl;
+}
 
+FragTrap &FragTrap::operator=(FragTrap const &copy){
+    if(this != &copy){
+        _name = copy._name;
+        _hitPoints = copy._hitPoints;
+        _attackDamage = copy._attackDamage;
+        _energyPoints = copy._energyPoints;
+    }
+    return *this;
+}
+
+FragTrap::~FragTrap(){
+    std::cout << "FragTrap destructor called" << std::endl;
 }
 
 void FragTrap::attack(const std::string &target){

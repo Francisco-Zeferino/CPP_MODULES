@@ -6,21 +6,23 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 10:34:15 by francisco         #+#    #+#             */
-/*   Updated: 2024/05/28 14:08:26 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:15:52 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(){
     ClapTrap a("a");
-    ScavTrap AD("AD");
-    ClapTrap b("b");
+    ScavTrap mario("Mario");
+    FragTrap frag("c");
+    ScavTrap jose("jose");
 
-    a.attack("b");
-    b.takeDamage(10);
-    b.attack("a");
-    AD.attack("a");
-    AD.attack("B");
-    b.attack("A");
+    mario.guardGate();
+    frag.highFivesGuys();
+    jose.beRepaired(1);
+    mario.beRepaired(1);
+    jose = mario;
+    jose.beRepaired(1);
+
 }

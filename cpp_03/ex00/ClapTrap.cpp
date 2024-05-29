@@ -6,18 +6,37 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 10:34:24 by francisco         #+#    #+#             */
-/*   Updated: 2024/05/27 15:20:46 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:31:46 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(){
+    std::cout << "ClapTrap default constructor called" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "ClapTrap constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap &copy){
+    *this = copy;
+    std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap destructor called" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &copy){
+    if(this != &copy){
+        _name = copy._name;
+        _attackDamage = copy._attackDamage;
+        _energyPoints = copy._energyPoints;
+        _hitPoints = copy._hitPoints;
+    }
+    return *this;
 }
 
 void ClapTrap::attack(const std::string &target){
@@ -40,6 +59,11 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+    if(_hitPoints <= 0){
+        std::cout << "No damage taken, " << _name << " is already dead." << std::endl;
+        return;
+    }
     _hitPoints -= amount;
+    std::cout << _name << " took " << amount << " of damage!" << std::endl;
 }
 

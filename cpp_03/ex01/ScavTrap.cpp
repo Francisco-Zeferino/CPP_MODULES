@@ -6,20 +6,40 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:25:36 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/05/28 14:03:01 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:25:40 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(){
+    std::cout << "ScavTrap default constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name){
+    std::cout << "ScavTrap constructor called" << std::endl;
     _hitPoints = 100;
     _attackDamage = 20;
     _energyPoints = 50;
 }
 
+ScavTrap::ScavTrap(ScavTrap &copy){
+    *this = copy;
+    std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &copy){
+    if(this != &copy){
+        _name = copy._name;
+        _hitPoints = copy._hitPoints;
+        _energyPoints = copy._energyPoints;
+        _attackDamage = copy._attackDamage;
+    }
+    return *this;
+}
+
 ScavTrap::~ScavTrap(){
-    
+    std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 void ScavTrap::guardGate(){
