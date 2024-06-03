@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/03 21:28:24 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/03 21:18:56 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/03 21:35:03 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Animal.hpp"
 
-Dog::Dog(){
-
-}
-
-Dog::Dog(Dog &copy){
-    *this = copy;
-}
-
-Dog::~Dog(){
-
-}
-
-Dog &Dog::operator=(Dog const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-}
-
-void Dog::makeSound(){
-    std::cout << "Woof Woof" << std::endl;
-}
+class Cat: public Animal{
+    public :
+        Cat();
+        Cat(Cat &copy);
+        ~Cat();
+        Cat &operator=(Cat const &copy);
+        void const makeSound();
+};

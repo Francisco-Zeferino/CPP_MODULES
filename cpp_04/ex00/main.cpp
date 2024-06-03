@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/03 21:28:24 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/03 21:29:17 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/03 22:16:10 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog(){
-
-}
-
-Dog::Dog(Dog &copy){
-    *this = copy;
-}
-
-Dog::~Dog(){
-
-}
-
-Dog &Dog::operator=(Dog const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-}
-
-void Dog::makeSound(){
-    std::cout << "Woof Woof" << std::endl;
+int main()
+{
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    //std::cout << j->getType() << " " << std::endl;
+    //std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
+    return 0;
 }

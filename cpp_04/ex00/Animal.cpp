@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:44:38 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/02 10:54:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:36:07 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ Animal &Animal::operator=(Animal const &copy){
 }
 
 
-void Animal::makeSound(){
+void const Animal::makeSound(){
     
+}
+
+void Animal::getType(){
+    std::cout << "Type" << std::endl;
 }
