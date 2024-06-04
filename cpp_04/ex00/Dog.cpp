@@ -6,13 +6,13 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:41:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:14:20 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(){
+Dog::Dog(){
     type = "Dog";
 }
 
@@ -21,7 +21,6 @@ Dog::Dog(Dog &copy) : Animal(){
 }
 
 Dog::~Dog(){
-
 }
 
 Dog &Dog::operator=(Dog const &copy){

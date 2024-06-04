@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:49:35 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 11:11:58 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:46:49 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Dog: public Animal{
         ~Dog();
         Dog &operator=(Dog const &copy);
         void makeSound() const;
+        std::string getBrainIdeas(int idx);
+        void setBrainIdeas(int idx, std::string idea);
 };
 
 #endif

@@ -6,16 +6,16 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:49:35 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 11:11:58 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:17:33 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 #define DOG_HPP
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog: public Animal{
+class Dog: public AAnimal{
     private :
         Brain *dogBrain;
     public :
@@ -24,6 +24,8 @@ class Dog: public Animal{
         ~Dog();
         Dog &operator=(Dog const &copy);
         void makeSound() const;
+        std::string getBrainIdeas(int idx);
+        void setBrainIdeas(int idx, std::string idea);
 };
 
 #endif

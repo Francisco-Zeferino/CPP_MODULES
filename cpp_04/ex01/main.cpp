@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:29:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:09:36 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:03:14 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,35 @@ int main()
         delete animals[i];
     }
 
+    std::cout << "-------------------" << std::endl;
+    std::cout << "Checking Dog Deep Copy" << std::endl;
+    std::cout << "-------------------" << std::endl;
+    Dog cao;
+    Dog cao2;
+    cao.setBrainIdeas(0,"Thinking about food");
+    std::cout << cao.getBrainIdeas(0) << std::endl;
+    cao2.setBrainIdeas(0,"Not thinking about food");
+    cao = cao2;
+    cao2.setBrainIdeas(0,"Definitly not thinking about food");
+    std::cout << cao.getBrainIdeas(0) << std::endl;
+    std::cout << cao2.getBrainIdeas(0) << std::endl;
+    std::cout << &cao << std::endl;
+    std::cout << &cao2 << std::endl;
+    std::cout << "-------------------" << std::endl;
+
+    std::cout << "-------------------" << std::endl;
+    std::cout << "Checking Cat Deep Copy" << std::endl;
+    std::cout << "-------------------" << std::endl;
+    Cat gato;
+    Cat gato2;
+    gato.setBrainIdeas(0,"Thinking about food");
+    std::cout << gato.getBrainIdeas(0) << std::endl;
+    gato2.setBrainIdeas(0,"Not thinking about food");
+    gato = gato2;
+    gato2.setBrainIdeas(0,"Definitly not thinking about food");
+    std::cout << gato.getBrainIdeas(0) << std::endl;
+    std::cout << gato2.getBrainIdeas(0) << std::endl;
+    std::cout << &gato << std::endl;
+    std::cout << &gato2 << std::endl;
+    std::cout << "-------------------" << std::endl;
 }

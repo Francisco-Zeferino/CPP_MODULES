@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 12:58:30 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:18:09 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat(){
     type = "Cat";
 }
 
-Cat::Cat(Cat &copy){
+Cat::Cat(Cat &copy) : AAnimal(){
     *this = copy;
 }
 
@@ -29,11 +29,19 @@ Cat::~Cat(){
 Cat &Cat::operator=(Cat const &copy){
     if(this != &copy){
         type = copy.type;
-        catBrain = copy.catBrain;
+        *catBrain = *copy.catBrain;
     }
     return(*this);
 }
 
 void Cat::makeSound() const{
     std::cout << "Miau Miau" << std::endl;
+}
+
+void Cat::setBrainIdeas(int idx, std::string idea){
+    catBrain->setIdeas(idx, idea);
+}
+
+std::string Cat::getBrainIdeas(int idx){
+    return(catBrain->getIdeas(idx));
 }

@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:42:51 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:19:51 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:41:41 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Animal{
     public:
         Animal();
         Animal(Animal &copy);
-        ~Animal();
+        virtual ~Animal();
         Animal &operator=(Animal const &copy);
         virtual void makeSound() const;
         std::string getType() const;

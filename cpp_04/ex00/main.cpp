@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:29:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:20:05 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:41:00 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
+    delete meta;
+    delete j;
+    delete i;
     return 0;
 }

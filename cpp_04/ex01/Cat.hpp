@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:18:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 11:03:41 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:59:51 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Cat: public Animal{
         ~Cat();
         Cat &operator=(Cat const &copy);
         void makeSound() const;
+        std::string getBrainIdeas(int idx);
+        void setBrainIdeas(int idx, std::string idea);
 };
 
 #endif

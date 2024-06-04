@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:29:43 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:17:28 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog(){
     type = "Dog";
 }
 
-Dog::Dog(Dog &copy){
+Dog::Dog(Dog &copy) : AAnimal(){
     *this = copy;
 }
 
@@ -29,11 +29,19 @@ Dog::~Dog(){
 Dog &Dog::operator=(Dog const &copy){
     if(this != &copy){
         type = copy.type;
-        dogBrain = copy.dogBrain;
+        *dogBrain = *copy.dogBrain;
     }
     return(*this);
 }
 
 void Dog::makeSound() const{
     std::cout << "Woof Woof" << std::endl;
+}
+
+void Dog::setBrainIdeas(int idx, std::string idea){
+    dogBrain->setIdeas(idx, idea);
+}
+
+std::string Dog::getBrainIdeas(int idx){
+    return(dogBrain->getIdeas(idx));
 }
