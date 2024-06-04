@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:18:40 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/04 09:59:37 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 10:02:27 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
-Dog::Dog(){
-    type = "Dog";
+WrongAnimal::WrongAnimal(){
+
 }
 
-Dog::Dog(Dog &copy){
+WrongAnimal::WrongAnimal(WrongAnimal &copy){
     *this = copy;
 }
 
-Dog::~Dog(){
-
+WrongAnimal::~WrongAnimal(){
+    
 }
 
-Dog &Dog::operator=(Dog const &copy){
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &copy){
     if(this != &copy){
         type = copy.type;
     }
     return(*this);
 }
 
-void Dog::makeSound() const{
-    std::cout << "Woof Woof" << std::endl;
+
+void WrongAnimal::makeSound(){
+    
+}
+
+std::string WrongAnimal::getType(){
+    return(type);
 }

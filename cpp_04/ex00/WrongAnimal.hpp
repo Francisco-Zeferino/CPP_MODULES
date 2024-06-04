@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:18:40 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/04 09:57:54 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 10:01:28 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+#include <iostream>
 
-Dog::Dog(){
-    type = "Dog";
-}
+class WrongAnimal {
+    protected:
+        std::string type;
+    public:
+        WrongAnimal();
+        WrongAnimal(WrongAnimal &copy);
+        ~WrongAnimal();
+        WrongAnimal &operator=(WrongAnimal const &copy);
+        virtual void makeSound();
+        std::string getType();
+};
 
-Dog::Dog(Dog &copy){
-    *this = copy;
-}
-
-Dog::~Dog(){
-
-}
-
-Dog &Dog::operator=(Dog const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-    return(*this);
-}
-
-void Dog::makeSound() const{
-    std::cout << "Woof Woof" << std::endl;
-}
+#endif

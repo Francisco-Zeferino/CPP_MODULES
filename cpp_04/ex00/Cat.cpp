@@ -6,14 +6,14 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/03 21:28:43 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:19:25 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(){
-
+    type = "Cat";
 }
 
 Cat::Cat(Cat &copy){
@@ -31,6 +31,6 @@ Cat &Cat::operator=(Cat const &copy){
     return(*this);
 }
 
-void Cat::makeSound(){
+void Cat::makeSound() const{
     std::cout << "Miau Miau" << std::endl;
 }

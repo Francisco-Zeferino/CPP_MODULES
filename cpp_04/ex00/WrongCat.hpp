@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:18:40 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/04 09:57:54 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 10:04:05 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef WRONGCat_HPP
+#define WRONGCat_HPP
+#include "WrongAnimal.hpp"
 
-Dog::Dog(){
-    type = "Dog";
-}
+class WrongCat : public WrongAnimal{
+    public :
+        WrongCat();
+        WrongCat(WrongCat &copy);
+        ~WrongCat();
+        WrongCat &operator=(WrongCat const &copy);
+        void makeSound();
+};
 
-Dog::Dog(Dog &copy){
-    *this = copy;
-}
-
-Dog::~Dog(){
-
-}
-
-Dog &Dog::operator=(Dog const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-    return(*this);
-}
-
-void Dog::makeSound() const{
-    std::cout << "Woof Woof" << std::endl;
-}
+#endif
