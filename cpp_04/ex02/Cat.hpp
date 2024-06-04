@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:41:29 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/03 21:18:56 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 11:03:41 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat::Cat() : Animal(){
-    type = "Cat";
-}
+class Cat: public Animal{
+    private :
+        Brain *catBrain;
+    public :
+        Cat();
+        Cat(Cat &copy);
+        ~Cat();
+        Cat &operator=(Cat const &copy);
+        void makeSound() const;
+};
 
-Cat::Cat(Cat &copy) : Animal(){
-    *this = copy;
-}
-
-Cat::~Cat(){
-
-}
-
-Cat &Cat::operator=(Cat const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-    return(*this);
-}
-
-void Cat::makeSound() const{
-    std::cout << "Miau Miau" << std::endl;
-}
+#endif

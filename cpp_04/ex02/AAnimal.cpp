@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:41:29 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/02 10:44:38 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 10:19:47 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "AAnimal.hpp"
 
-Cat::Cat() : Animal(){
-    type = "Cat";
+AAnimal::AAnimal(){
+
 }
 
-Cat::Cat(Cat &copy) : Animal(){
+AAnimal::AAnimal(AAnimal &copy){
     *this = copy;
 }
 
-Cat::~Cat(){
-
+AAnimal::~AAnimal(){
+    
 }
 
-Cat &Cat::operator=(Cat const &copy){
+AAnimal &AAnimal::operator=(AAnimal const &copy){
     if(this != &copy){
         type = copy.type;
     }
     return(*this);
 }
 
-void Cat::makeSound() const{
-    std::cout << "Miau Miau" << std::endl;
+
+void AAnimal::makeSound() const{
+    
+}
+
+std::string AAnimal::getType() const{
+    return(type);
 }

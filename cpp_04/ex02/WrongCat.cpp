@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:41:29 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/04 09:59:40 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 10:09:01 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() : Animal(){
-    type = "Cat";
+WrongCat::WrongCat(){
+    type = "WrongCat";
 }
 
-Cat::Cat(Cat &copy) : Animal(){
+WrongCat::WrongCat(WrongCat &copy){
     *this = copy;
 }
 
-Cat::~Cat(){
+WrongCat::~WrongCat(){
 
 }
 
-Cat &Cat::operator=(Cat const &copy){
+WrongCat &WrongCat::operator=(WrongCat const &copy){
     if(this != &copy){
         type = copy.type;
     }
     return(*this);
 }
 
-void Cat::makeSound() const{
-    std::cout << "Miau Miau" << std::endl;
+void WrongCat::makeSound(){
+    std::cout << "Not the wanted Miau Miau" << std::endl;
 }

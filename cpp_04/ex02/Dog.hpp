@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:41:29 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/02 10:49:35 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 11:11:58 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat::Cat() : Animal(){
-    type = "Cat";
-}
+class Dog: public Animal{
+    private :
+        Brain *dogBrain;
+    public :
+        Dog();
+        Dog(Dog &copy);
+        ~Dog();
+        Dog &operator=(Dog const &copy);
+        void makeSound() const;
+};
 
-Cat::Cat(Cat &copy) : Animal(){
-    *this = copy;
-}
-
-Cat::~Cat(){
-
-}
-
-Cat &Cat::operator=(Cat const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-    return(*this);
-}
-
-void Cat::makeSound() const{
-    std::cout << "Miau Miau" << std::endl;
-}
+#endif

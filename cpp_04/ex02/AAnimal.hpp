@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 15:41:29 by ffilipe-         ###   ########.fr       */
+/*   Created: 2024/06/02 10:42:51 by ffilipe-          #+#    #+#             */
+/*   Updated: 2024/06/04 15:38:34 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
+#include "iostream"
 
-Cat::Cat() : Animal(){
-    type = "Cat";
-}
+class AAnimal{
+    protected:
+        std::string type;
+    public:
+        AAnimal();
+        AAnimal(AAnimal &copy);
+        virtual ~AAnimal();
+        AAnimal &operator=(AAnimal const &copy);
+        virtual void makeSound() const = 0;
+        std::string getType() const;
+};
 
-Cat::Cat(Cat &copy) : Animal(){
-    *this = copy;
-}
-
-Cat::~Cat(){
-
-}
-
-Cat &Cat::operator=(Cat const &copy){
-    if(this != &copy){
-        type = copy.type;
-    }
-    return(*this);
-}
-
-void Cat::makeSound() const{
-    std::cout << "Miau Miau" << std::endl;
-}
+#endif
