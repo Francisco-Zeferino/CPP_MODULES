@@ -6,22 +6,24 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:44:38 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:19:47 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:45:18 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(){
-
+    std::cout << "Animal constructor called" << std::endl;
+    type = "Animal";
 }
 
 Animal::Animal(Animal &copy){
-    *this = copy;
+    std::cout << "Animal copy constructor called" << std::endl;
+    this->type = copy.type;
 }
 
 Animal::~Animal(){
-    
+    std::cout << "Animal destructor called" << std::endl;
 }
 
 Animal &Animal::operator=(Animal const &copy){
@@ -33,7 +35,7 @@ Animal &Animal::operator=(Animal const &copy){
 
 
 void Animal::makeSound() const{
-    
+    std::cout << "Animal sound" << std::endl;
 }
 
 std::string Animal::getType() const{

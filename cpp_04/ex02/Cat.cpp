@@ -6,19 +6,22 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 19:18:09 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:51:33 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(){
+    std::cout << "Cat constructor Called" << std::endl;
     catBrain = new Brain();
     type = "Cat";
 }
 
 Cat::Cat(Cat &copy) : AAnimal(){
-    *this = copy;
+    std::cout << "Cat copy constructor Called" << std::endl;
+    this->type = copy.type;
+    *catBrain = *copy.catBrain;
 }
 
 Cat::~Cat(){

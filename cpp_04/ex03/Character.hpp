@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:31:02 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/05 14:31:51 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:56:37 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class Character : public ICharacter{
     private :
         std::string name;
         AMateria *inventory[4];
+        AMateria *droppedMaterias[10];
+        int droppedCount;
     public :
         Character();
         Character(std::string name);

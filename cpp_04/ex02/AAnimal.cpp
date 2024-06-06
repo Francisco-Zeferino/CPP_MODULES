@@ -13,15 +13,16 @@
 #include "AAnimal.hpp"
 
 AAnimal::AAnimal(){
-
+    std::cout << "AAnimal constructor Called" << std::endl;
 }
 
 AAnimal::AAnimal(AAnimal &copy){
-    *this = copy;
+    std::cout << "AAnimal copy constructor Called" << std::endl;
+    this->type = copy.type;
 }
 
 AAnimal::~AAnimal(){
-    
+    std::cout << "AAnimal destructor Called" << std::endl;
 }
 
 AAnimal &AAnimal::operator=(AAnimal const &copy){
@@ -30,7 +31,6 @@ AAnimal &AAnimal::operator=(AAnimal const &copy){
     }
     return(*this);
 }
-
 
 void AAnimal::makeSound() const{
     

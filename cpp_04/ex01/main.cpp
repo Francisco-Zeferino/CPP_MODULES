@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:29:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 19:03:14 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:39:48 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main()
     std::cout << "-------------------" << std::endl;
     Dog cao;
     Dog cao2;
+    std::cout << "-------------------" << std::endl;
     cao.setBrainIdeas(0,"Thinking about food");
     std::cout << cao.getBrainIdeas(0) << std::endl;
     cao2.setBrainIdeas(0,"Not thinking about food");
@@ -57,6 +58,7 @@ int main()
     std::cout << "-------------------" << std::endl;
     Cat gato;
     Cat gato2;
+    std::cout << "-------------------" << std::endl;
     gato.setBrainIdeas(0,"Thinking about food");
     std::cout << gato.getBrainIdeas(0) << std::endl;
     gato2.setBrainIdeas(0,"Not thinking about food");
