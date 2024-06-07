@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:29:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 09:53:08 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:09:40 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int main()
     w->makeSound();
     h->makeSound();
     meta->makeSound();
-    delete meta;
-    delete j;
-    delete i;
-    delete h;
     delete w;
+    delete h;
+    delete i;
+    delete j;
+    delete meta;
     return 0;
 }

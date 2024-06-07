@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 14:06:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 14:32:23 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:18:24 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 #include "MateriaSource.hpp"
 #include "Character.hpp"
-#include "CureMateria.hpp"
-#include "IceMateria.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 int main(void)
 {

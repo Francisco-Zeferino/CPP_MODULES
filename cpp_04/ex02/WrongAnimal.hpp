@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 09:57:54 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/04 10:01:28 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 09:39:27 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class WrongAnimal {
     public:
         WrongAnimal();
         WrongAnimal(WrongAnimal &copy);
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         WrongAnimal &operator=(WrongAnimal const &copy);
-        virtual void makeSound();
-        std::string getType();
+        void makeSound() const;
+        std::string getType() const;
 };
 
 #endif

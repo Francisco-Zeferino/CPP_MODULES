@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:29:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 10:39:48 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:11:29 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int main()
 {
     const Animal *animals[10];
-    
+
     for(int i =0; i < 5; i++){
         animals[i] = new Dog();
     }
@@ -36,6 +36,11 @@ int main()
         delete animals[i];
     }
 
+    Dog basic;
+    {
+        Dog tmp = basic;
+    }
+    
     std::cout << "-------------------" << std::endl;
     std::cout << "Checking Dog Deep Copy" << std::endl;
     std::cout << "-------------------" << std::endl;

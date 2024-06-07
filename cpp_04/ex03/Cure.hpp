@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CureMateria.hpp                                    :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:04:11 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/05 13:16:13 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:19:02 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUREMATERIA_HPP
-#define CUREMATERIA_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
 #include <iostream>
 #include "AMateria.hpp"

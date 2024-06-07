@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 11:51:58 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:38:13 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ Dog::Dog(){
     type = "Dog";
 }
 
-Dog::Dog(Dog &copy) : AAnimal(){
+Dog::Dog(Dog &copy) : AAnimal(copy){
     std::cout << "Dog copy constructor Called" << std::endl;
-    this->type = copy.type;
-    *dogBrain = *copy.dogBrain;
+    dogBrain = new Brain(*copy.dogBrain);
+    // this->type = copy.type;
+    // *dogBrain = *copy.dogBrain;
 }
 
 Dog::~Dog(){

@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:50:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 11:48:34 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:29:15 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Dog::Dog(){
     type = "Dog";
 }
 
-Dog::Dog(Dog &copy) : Animal(){
+Dog::Dog(Dog &copy) : Animal(copy){
     std::cout << "Dog copy constructor called" << std::endl;
-    this->type = copy.type;
-    *dogBrain = *copy.dogBrain;
+    dogBrain = new Brain(*copy.dogBrain);
+    //*dogBrain = *copy.dogBrain;
 }
 
 Dog::~Dog(){
@@ -46,5 +46,6 @@ void Dog::setBrainIdeas(int idx, std::string idea){
 }
 
 std::string Dog::getBrainIdeas(int idx){
+    std::cout << "DOG BRAIN MEM ===========" << dogBrain << std::endl;
     return(dogBrain->getIdeas(idx));
 }

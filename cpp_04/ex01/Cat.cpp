@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 21:20:47 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 11:47:49 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:34:03 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ Cat::Cat(){
     type = "Cat";
 }
 
-Cat::Cat(Cat &copy) : Animal(){
+Cat::Cat(Cat &copy) : Animal(copy){
     std::cout << "Cat copy constructor called" << std::endl;
-    this->type = copy.type;
-    *catBrain = *copy.catBrain;
+    catBrain = new Brain(*copy.catBrain);
+    //this->type = copy.type;
+    //*catBrain = *copy.catBrain;
 }
 
 Cat::~Cat(){

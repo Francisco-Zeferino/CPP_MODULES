@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:42:19 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/06 14:18:09 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:21:58 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void Character::unequip(int idx){
 }
 
 void Character::use(int idx, ICharacter &target){ 
-    if(inventory[idx] != NULL){
+    if(inventory[idx] != NULL && idx >= 0 && idx <= 3){
         inventory[idx]->use(target);
     }
 }
