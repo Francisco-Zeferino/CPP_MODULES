@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/11 18:14:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:02:02 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ int Bureaucrat::getGrade() const{
 std::string Bureaucrat::getName() const{
     return (_name);
 }
-
