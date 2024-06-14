@@ -6,13 +6,13 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/12 10:18:47 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:45:42 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(50){
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(100){
 }
 
 Bureaucrat::Bureaucrat(int grade) : _name("Default"){
