@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:46:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/14 12:04:18 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:56:05 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,12 @@ int main(){
     e.signForm(b);
     e.signForm(a);
     // d.signForm(a);
+    // Bureaucrat a(11);
+    // Bureaucrat b;
+
+    // std::cout << a << std::endl;
+    // a.decrementGrade(5);
+    // std::cout << a << std::endl;
+    // a.incrementGrade(16);
+    // std::cout << a << std::endl;
 }
