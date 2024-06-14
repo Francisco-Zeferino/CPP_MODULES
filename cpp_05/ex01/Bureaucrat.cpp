@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/14 11:45:42 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:51:51 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void Bureaucrat::incrementGrade(int amount){
         if(_grade == 1 || (_grade - amount) > 1)
             throw Bureaucrat::GradeTooHighException();
         else
-            _grade--;
+            _grade -= amount;
     }
     catch (GradeTooHighException &e) {
         std::cout << e.what();
@@ -72,7 +72,7 @@ void Bureaucrat::decrementGrade(int amount){
         if(_grade == 150 || (_grade + amount) > 150)
             throw Bureaucrat::GradeTooLowException();
         else
-            _grade++;
+            _grade += amount;
     }
     catch (GradeTooLowException &e) {
         std::cout << e.what();
