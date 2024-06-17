@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:57:58 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/14 11:58:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/17 10:06:33 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ int Form::getExecGrade() const{
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form){
-    os << form.getName() << ", sign grade : " << form.getSignGrade() << " ,exec grade : " << form.getExecGrade() << " ,signed status : " << form.getSignedStatus() << std::endl;
+    os << form.getName() << ", sign grade : " << form.getSignGrade() << " ,exec grade : " << form.getExecGrade() << " ,signed status : " << form.getSignedStatus();
     return os;
 }
