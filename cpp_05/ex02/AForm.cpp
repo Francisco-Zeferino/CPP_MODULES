@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:26:50 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/14 14:44:11 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:22:01 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,32 @@ bool AForm::beSigned(Bureaucrat &bureaucrat){
     try{
         if(bureaucrat.getGrade() <= _signGrade && !_signed)
             _signed = true;
-        else if(bureaucrat.getGrade() >= _signGrade)
+        else if(bureaucrat.getGrade() > _signGrade)
             throw AForm::GradeTooLowException();
         else
-            throw AForm::AFormException();
+            throw AForm::AFormExceptionAlreadySigned();
     }catch (GradeTooLowException &e){
         std::cout << bureaucrat.getName() << " couldn't sign " << _name << " because " << e.what();
         return false;
-    }catch (AFormException &e){
+    }catch (AFormExceptionAlreadySigned &e){
         std::cout << bureaucrat.getName() << " couldn't sign " << _name << " because " << e.what();
         return false;
     }
     return true;
 }
 
-bool AForm::checkRequirements(Bureaucrat &bureaucrat){
+bool AForm::checkRequirements(Bureaucrat const &bureaucrat) const{
     try{
-        if(bureaucrat.getGrade() <= _signGrade && !_signed)
-           return true;
-        else if(bureaucrat.getGrade() >= _signGrade)
+        if(bureaucrat.getGrade() > _signGrade)
             throw AForm::GradeTooLowException();
+        else if(bureaucrat.getGrade() <= _signGrade && !_signed)
+           return true;
         else
-            throw AForm::AFormException();
+            throw AForm::AFormExceptionAlreadySigned();
     }catch (GradeTooLowException &e){
         std::cout << bureaucrat.getName() << " couldn't sign " << _name << " because " << e.what();
         return false;
-    }catch (AFormException &e){
+    }catch (AFormExceptionAlreadySigned &e){
         std::cout << bureaucrat.getName() << " couldn't sign " << _name << " because " << e.what();
         return false;
     }

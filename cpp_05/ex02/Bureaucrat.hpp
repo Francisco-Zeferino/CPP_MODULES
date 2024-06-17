@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:24 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/12 10:19:03 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:11:38 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat{
     private :
@@ -42,6 +45,7 @@ class Bureaucrat{
         void decrementGrade(int amount);
         int getGrade() const;
         std::string getName() const;
+        void executeForm(AForm const &form);
 };
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);

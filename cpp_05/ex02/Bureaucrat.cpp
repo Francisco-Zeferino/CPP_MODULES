@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/14 12:53:49 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:26:31 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ Bureaucrat Bureaucrat::operator=(Bureaucrat const &copy){
 
 void Bureaucrat::incrementGrade(int amount){
     try {
-        if(_grade == 1 || (_grade - amount) < 1)
+        if((_grade - amount) < 1)
             throw Bureaucrat::GradeTooHighException();
         else
             _grade -= amount;
@@ -69,7 +69,7 @@ void Bureaucrat::incrementGrade(int amount){
 
 void Bureaucrat::decrementGrade(int amount){
     try {
-        if(_grade == 150 || (_grade + amount) > 150)
+        if((_grade + amount) > 150)
             throw Bureaucrat::GradeTooLowException();
         else
             _grade += amount;
@@ -77,6 +77,13 @@ void Bureaucrat::decrementGrade(int amount){
     catch (GradeTooLowException &e) {
         std::cout << e.what();
     }
+}
+
+void Bureaucrat::executeForm(AForm const &form){
+    if(_grade > form.getExecGrade())
+        std::cout << "Cant execute form " << form.getName() << " because grade is too low!" << std::endl;
+    else
+        form.execute(*this);
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat){

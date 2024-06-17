@@ -10,17 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AForm_HPP
-#define AForm_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
-#include <iostream>
 #include "Bureaucrat.hpp"
+#include <iostream>
+#include <fstream>
 #include <exception>
+
+class Bureaucrat;
 
 class AForm{
     private :
         const std::string _name;
-        std::string _errorMessage;
         bool _signed;
         const int _signGrade;
         const int _execGrade;
@@ -42,14 +44,20 @@ class AForm{
                     return "Grade is too low!\n";
                 }
         };
-        class AFormException : public std::exception{
+        class AFormExceptionAlreadySigned : public std::exception{
             public :
                 virtual const char *what() const throw(){
                     return "AForm is already signed\n";
                 }
         };
+        class AFormExceptionExecGrade : public std::exception{
+            public :
+                virtual const char *what() const throw(){
+                    return "ExecGrade is too low!\n";
+                }
+        };
         bool beSigned(Bureaucrat &bureaucrat);
-        bool checkRequirements(Bureaucrat &bureaucrat);
+        bool checkRequirements(Bureaucrat const &bureaucrat) const;
         void signAForm(Bureaucrat &bureaucrat);
         virtual void execute(Bureaucrat const &executor) const = 0;
         std::string getName() const;
