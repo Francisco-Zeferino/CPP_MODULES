@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:46:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:50:06 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/18 10:33:53 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,45 @@
 #include "PresidentialPardonForm.hpp"
 
 int main(){
-    Bureaucrat a(9);
-    Bureaucrat b("Manel", 2);
-    ShrubberyCreationForm test("arvores");
-    RobotomyRequestForm test2("robodrenas");
-    PresidentialPardonForm test3("president");
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
+    Bureaucrat test1(9);
+    Bureaucrat test2("Manel", 2);
+    Bureaucrat test3("Frn", 150);
+    Bureaucrat test4("Fren", 140);
+    ShrubberyCreationForm shrubb("arvores");
+    RobotomyRequestForm robot("robodrenas");
+    PresidentialPardonForm president("president");
 
     std::cout << "----------Shrubb test----------" << std::endl;
-    b.executeForm(test3);
-    // test.execute(b);
-    // test2.execute(b);
-    // std::cout << "---------------Test Basic Form A-------------" << std::endl;
-    // std::cout << a << std::endl;
-    // std::cout << formA << std::endl;
-    // a.decrementGrade(2);
-    // formA.signForm(a);
-    // a.incrementGrade(2);
-    // formA.signForm(a);
-    // std::cout << formA << std::endl;
-    // std::cout << "----------------------------------" << std::endl;
-    // std::cout << "---------------Test Basic Form B-------------" << std::endl;
-    // std::cout << b << std::endl;
-    // std::cout << formB << std::endl;
-    // formB.signForm(b);
-    // b.incrementGrade(99);
-    // formB.signForm(b);
-    // std::cout << formB << std::endl;
-    // std::cout << "----------------------------------" << std::endl;
-    // std::cout << "---------------Test Form Multiple Signs-------------" << std::endl;
-    // std::cout << formC << std::endl;
-    // formC.beSigned(b);
-    // std::cout << formC << std::endl;
-    // formC.signForm(b);
-    // formC.signForm(a);
-    // std::cout << formC << std::endl;
-    // std::cout << "----------------------------------" << std::endl;
+    std::cout << shrubb;
+    std::cout << test1 << std::endl;
+    std::cout << test2 << std::endl;
+    std::cout << test3 << std::endl;
+    std::cout << test4 << std::endl;
+    shrubb.execute(test1);
+    test2.executeForm(shrubb);
+    shrubb.execute(test3);
+    shrubb.execute(test4);
+    std::cout << "-------------------------------" << std::endl;
+    std::cout << "----------Robotomy test----------" << std::endl;
+    std::cout << robot;
+    std::cout << test1 << std::endl;
+    std::cout << test2 << std::endl;
+    std::cout << test3 << std::endl;
+    std::cout << test4 << std::endl;
+    robot.execute(test1);
+    test2.executeForm(robot);
+    robot.execute(test3);
+    robot.execute(test4);
+    std::cout << "-------------------------------" << std::endl;
+    std::cout << "----------Presidential Test----------" << std::endl;
+    std::cout << president;
+    std::cout << test1 << std::endl;
+    std::cout << test2 << std::endl;
+    std::cout << test3 << std::endl;
+    std::cout << test4 << std::endl;
+    president.execute(test1);
+    test2.executeForm(president);
+    president.execute(test3);
+    president.execute(test4);
+    std::cout << "-------------------------------------" << std::endl;
 }
