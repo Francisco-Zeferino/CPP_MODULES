@@ -6,15 +6,16 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:46:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 09:51:34 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:24:59 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 int main(){
-    Bureaucrat a("Test A",145);
+    Bureaucrat a("Test A",-1);
     Bureaucrat b("Test B",10);
+    Bureaucrat c(-10);
 
     std::cout << "---------------Test A-------------" << std::endl;
     std::cout << a << std::endl;

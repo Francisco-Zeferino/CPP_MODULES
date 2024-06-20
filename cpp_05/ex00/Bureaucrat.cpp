@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 09:45:43 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/20 12:27:55 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,23 @@ Bureaucrat::Bureaucrat(int grade) : _name("Default"){
         else if(grade > 150)
             throw Bureaucrat::GradeTooLowException();
         else{
-            std::cout << "Bureaucrat default constructor called" << std::endl;
+            std::cout << "Bureaucrat grade constructor called" << std::endl;
+            _grade = grade;
+        }
+    }
+    catch (std::exception &e){
+        std::cout << e.what();
+    }
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
+    try {
+        if(grade < 1)
+            throw Bureaucrat::GradeTooHighException();
+        else if(grade > 150)
+            throw Bureaucrat::GradeTooLowException();
+        else{
+            std::cout << "Bureaucrat name constructor called" << std::endl;
             _grade = grade;
         }
     }
@@ -32,10 +48,6 @@ Bureaucrat::Bureaucrat(int grade) : _name("Default"){
     catch (GradeTooLowException &e){
         std::cout << e.what();
     }
-}
-
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade){
-    std::cout << "Bureaucrat name constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &copy){
