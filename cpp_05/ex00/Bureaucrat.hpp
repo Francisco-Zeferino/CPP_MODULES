@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:24 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/12 10:19:03 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/21 14:45:00 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <stdlib.h>
 
 class Bureaucrat{
     private :
@@ -28,15 +29,11 @@ class Bureaucrat{
         Bureaucrat operator=(Bureaucrat const &copy);
         class GradeTooHighException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Grade is too high!\n";
-                }
+                virtual const char *what() const throw();
         };
         class GradeTooLowException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Grade is too low!\n";
-                }
+                virtual const char *what() const throw();
         };
         void incrementGrade(int amount);
         void decrementGrade(int amount);

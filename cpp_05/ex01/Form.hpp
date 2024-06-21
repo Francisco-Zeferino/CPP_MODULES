@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:58:00 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/14 11:56:54 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/21 17:20:01 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,17 @@ class Form{
         Form operator=(Form const &copy);
         class GradeTooHighException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Grade is too high!\n";
-                }
+                virtual const char *what() const throw();
         };
         class GradeTooLowException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Grade is too low!\n";
-                }
+                virtual const char *what() const throw();
         };
         class FormException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Form is already signed\n";
-                }
+                virtual const char *what() const throw();
         };
         bool beSigned(Bureaucrat &bureaucrat);
-        void signForm(Bureaucrat &bureaucrat);
         std::string getName() const;
         bool getSignedStatus() const;
         int getSignGrade() const;
