@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/21 14:55:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:47:47 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,11 @@ void Bureaucrat::decrementGrade(int amount){
     catch (GradeTooLowException &e) {
         std::cout << e.what();
     }
+}
+
+void Bureaucrat::signForm(Form &form){
+    if(form.beSigned(*this))
+        std::cout << "Bureaucrat " << _name << " signs the form" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat){

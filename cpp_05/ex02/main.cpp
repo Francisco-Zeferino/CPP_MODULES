@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:46:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/18 10:33:53 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:36:34 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int main(){
     Bureaucrat test1(9);
     Bureaucrat test2("Manel", 2);
-    Bureaucrat test3("Frn", 150);
-    Bureaucrat test4("Fren", 140);
+    Bureaucrat test3("Francisco", 150);
+    Bureaucrat test4("Joao", 140);
     ShrubberyCreationForm shrubb("arvores");
     RobotomyRequestForm robot("robodrenas");
     PresidentialPardonForm president("president");

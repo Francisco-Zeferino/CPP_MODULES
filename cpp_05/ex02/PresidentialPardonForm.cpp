@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:28:01 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:41:39 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:34:43 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target){
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy){
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy) : AForm(copy){
     *this = copy;
 }
 

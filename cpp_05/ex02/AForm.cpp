@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:26:50 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:22:01 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:26:19 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,6 @@ bool AForm::checkRequirements(Bureaucrat const &bureaucrat) const{
         return false;
     }
     return true;
-}
-
-void AForm::signAForm(Bureaucrat &bureaucrat){
-    if(beSigned(bureaucrat))
-            std::cout << bureaucrat.getName() << " signed " << _name << std::endl;
 }
 
 std::string AForm::getName() const{

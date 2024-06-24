@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:28:03 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:37:48 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:34:48 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PresidentialPardonForm : public AForm{
     public :
         PresidentialPardonForm();
         PresidentialPardonForm(const std::string target);
-        PresidentialPardonForm(const PresidentialPardonForm &copy);
+        PresidentialPardonForm(PresidentialPardonForm &copy);
         ~PresidentialPardonForm();
         PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
         void execute(Bureaucrat const &executor) const;

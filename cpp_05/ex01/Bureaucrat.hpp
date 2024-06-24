@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:24 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/21 14:45:00 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:57:03 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     private :
@@ -39,6 +42,7 @@ class Bureaucrat{
         void decrementGrade(int amount);
         int getGrade() const;
         std::string getName() const;
+        void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &bureaucrat);

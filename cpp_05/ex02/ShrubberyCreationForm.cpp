@@ -6,17 +6,17 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:52:23 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/18 10:31:35 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:38:17 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 147, 135){}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 147, 135), fileName(target + "_shrubbery"){}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), fileName(target + "_shrubbery"){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy){
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy) : AForm(copy){
     *this = copy;
 }
 

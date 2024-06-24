@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:12:07 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:14:38 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:34:38 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",72,45){
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm",72,45), _target(target){}
 
-RobotomyRequestForm::RobotomyRequestForm(const AForm &copy){
+RobotomyRequestForm::RobotomyRequestForm(AForm &copy) : AForm(copy){
     *this = copy;
 }
 

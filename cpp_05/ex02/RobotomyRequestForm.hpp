@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 13:12:04 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:08:54 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:34:55 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class RobotomyRequestForm : public AForm{
     public :
         RobotomyRequestForm();
         RobotomyRequestForm(const std::string &target);
-        RobotomyRequestForm(const AForm &copy);
+        RobotomyRequestForm(AForm &copy);
         ~RobotomyRequestForm();
         RobotomyRequestForm &operator=(const AForm &copy);
         void execute(const Bureaucrat &executor) const;

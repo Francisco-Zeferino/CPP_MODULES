@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:58:00 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/21 17:20:01 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:56:44 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #define FORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
 #include <exception>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form{
     private :
