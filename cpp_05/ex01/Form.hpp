@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:58:00 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/24 13:56:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:24:52 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Bureaucrat;
 class Form{
     private :
         const std::string _name;
-        std::string _errorMessage;
         bool _signed;
         const int _signGrade;
         const int _execGrade;
