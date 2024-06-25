@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:16:31 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/25 15:56:36 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:55:19 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,26 @@ AForm *Intern::createPresidential(const std::string formName){
 
 AForm *Intern::makeForm(const std::string formName, const std::string target){
     std::string formNames[3] = {"shrubbery request", "robotomy request", "presidential request"};
-    AForm *(Intern::*funcPrt[3])(const std::string target);
     int pos = -1;
-    funcPrt[0] = &Intern::createShrubbery;
-    funcPrt[1] = &Intern::createRobot;
-    funcPrt[2] = &Intern::createPresidential;
     try{
         for(int i = 0; i < 3; i++){
             if(formNames[i] == formName)
-                return((this->*funcPrt[i])(target));
+                pos = i;
         }
         if(pos == -1)
             throw InternNoFormMatchException();
     }catch(InternNoFormMatchException &e){
         std::cout << e.what();
     }
-    return(NULL);
+    switch (pos)
+    {
+        case 1:
+            return(new ShrubberyCreationForm(target));
+        case 2:
+            return(new RobotomyRequestForm(target));
+        case 3:
+            return(new PresidentialPardonForm(target));
+        default:
+            return(NULL);
+    }
 }
