@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:26:50 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/19 10:15:56 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:06:29 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ AForm::AForm() : _name("Default"), _signed(false), _signGrade(50), _execGrade(50
 
 AForm::AForm(std::string name, int signGrade, int execGrade) : _name(name), _signed(false), _signGrade(signGrade), _execGrade(execGrade){
     std::cout << "AForm name constructor called" << std::endl;
+    if(_signGrade < 1 || _execGrade < 1)
+        throw AForm::GradeTooHighException();
+    else if(_signGrade > 150 || _execGrade > 150)
+        throw AForm::GradeTooLowException();
+    else{
+        std::cout << "Form name constructor called" << std::endl;
+    }
 }
 
 AForm::AForm(AForm &copy) : _signGrade(copy._signGrade), _execGrade(copy._execGrade){
@@ -59,8 +66,12 @@ bool AForm::checkRequirements(Bureaucrat const &bureaucrat) const{
     try{
         if(bureaucrat.getGrade() > _signGrade)
             throw AForm::GradeTooLowException();
-        else if(bureaucrat.getGrade() <= _signGrade && !_signed)
-           return true;
+        else if(bureaucrat.getGrade() > _execGrade)
+            throw AForm::AFormExceptionExecGrade();
+        else if(!_signed)
+            throw AForm::AFormExceptionNotSigned();
+        else if(bureaucrat.getGrade() <= _signGrade && _signed)
+            return true;
         else
             throw AForm::AFormExceptionAlreadySigned();
     }catch (GradeTooLowException &e){
@@ -69,13 +80,14 @@ bool AForm::checkRequirements(Bureaucrat const &bureaucrat) const{
     }catch (AFormExceptionAlreadySigned &e){
         std::cout << bureaucrat.getName() << " couldn't sign " << _name << " because " << e.what();
         return false;
+    }catch(AFormExceptionExecGrade &e){
+        std::cout << bureaucrat.getName() << " couldn't execute " << _name << " because " << e.what();
+        return false;
+    }catch (AFormExceptionNotSigned &e){
+        std::cout << bureaucrat.getName() << " couldn't execute " << _name << " because " << e.what();
+        return false;
     }
     return true;
-}
-
-void AForm::signAForm(Bureaucrat &bureaucrat){
-    if(beSigned(bureaucrat))
-            std::cout << bureaucrat.getName() << " signed " << _name << std::endl;
 }
 
 std::string AForm::getName() const{
@@ -92,6 +104,26 @@ int AForm::getSignGrade() const{
 
 int AForm::getExecGrade() const{
     return(_execGrade);
+}
+
+const char *AForm::GradeTooHighException::what() const throw(){
+    return "Grade is too high!\n";
+}
+
+const char *AForm::GradeTooLowException::what() const throw(){
+    return "Grade is too low!\n";
+}
+
+const char *AForm::AFormExceptionExecGrade::what() const throw(){
+    return "ExecGrade is too low!\n";
+}
+
+const char *AForm::AFormExceptionAlreadySigned::what() const throw(){
+    return "Form is already signed\n";
+}
+
+const char *AForm::AFormExceptionNotSigned::what() const throw(){
+    return "Form is not signed\n";
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm){

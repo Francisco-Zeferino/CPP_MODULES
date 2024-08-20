@@ -34,31 +34,26 @@ class AForm{
         AForm &operator=(AForm const &copy);
         class GradeTooHighException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Grade is too high!\n";
-                }
+                virtual const char *what() const throw();
         };
         class GradeTooLowException : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "Grade is too low!\n";
-                }
+                virtual const char *what() const throw();
         };
         class AFormExceptionAlreadySigned : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "AForm is already signed\n";
-                }
+                virtual const char *what() const throw();
+        };
+        class AFormExceptionNotSigned : public std::exception{
+            public :
+                virtual const char *what() const throw();
         };
         class AFormExceptionExecGrade : public std::exception{
             public :
-                virtual const char *what() const throw(){
-                    return "ExecGrade is too low!\n";
-                }
+                virtual const char *what() const throw();
         };
         bool beSigned(Bureaucrat &bureaucrat);
         bool checkRequirements(Bureaucrat const &bureaucrat) const;
-        void signAForm(Bureaucrat &bureaucrat);
         virtual void execute(Bureaucrat const &executor) const = 0;
         std::string getName() const;
         bool getSignedStatus() const;

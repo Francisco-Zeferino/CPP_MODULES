@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/24 14:30:13 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:19:41 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,7 @@ void Bureaucrat::signForm(AForm &form){
 }
 
 void Bureaucrat::executeForm(AForm const &form){
-    if(_grade > form.getExecGrade())
-        std::cout << "Cant execute form " << form.getName() << " because grade is too low!" << std::endl;
-    else
-        form.execute(*this);
+    form.execute(*this);
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat){

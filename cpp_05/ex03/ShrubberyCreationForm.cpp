@@ -6,13 +6,13 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:52:23 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/18 11:50:58 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 18:19:56 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 147, 135){}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 147, 135), fileName(target + "_shrubbery"){}
 
@@ -44,8 +44,6 @@ void ShrubberyCreationForm::asciiToFile() const{
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     if(checkRequirements(executor) && executor.getGrade() <= AForm::getExecGrade())
         asciiToFile();
-    else
-        std::cout << executor.getName() << " can't execute because exec grade is too low!" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

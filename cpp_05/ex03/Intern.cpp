@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:16:31 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/25 21:55:19 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 12:25:53 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ AForm *Intern::makeForm(const std::string formName, const std::string target){
     }
     switch (pos)
     {
-        case 1:
+        case 0:
             return(new ShrubberyCreationForm(target));
-        case 2:
+        case 1:
             return(new RobotomyRequestForm(target));
-        case 3:
+        case 2:
             return(new PresidentialPardonForm(target));
         default:
             return(NULL);

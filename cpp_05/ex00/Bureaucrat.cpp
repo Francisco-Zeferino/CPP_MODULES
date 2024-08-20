@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/21 14:55:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:00:48 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,24 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(100){
 }
 
 Bureaucrat::Bureaucrat(int grade) : _name("Default"){
-    try {
-        if(grade < 1)
-            throw Bureaucrat::GradeTooHighException();
-        else if(grade > 150)
-            throw Bureaucrat::GradeTooLowException();
-        else{
-            std::cout << "Bureaucrat grade constructor called" << std::endl;
-            _grade = grade;
-        }
-    }
-    catch (GradeTooHighException &e){
-        std::cout << "Invalid grade! Exception caught : " << e.what();
-    }catch (GradeTooLowException &e){
-        std::cout << "Invalid grade! Exception caught : " << e.what();
+    if(grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if(grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else{
+        std::cout << "Bureaucrat grade constructor called" << std::endl;
+        _grade = grade;
     }
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name){
-    try {
-        if(grade < 1)
-            throw Bureaucrat::GradeTooHighException();
-        else if(grade > 150)
-            throw Bureaucrat::GradeTooLowException();
-        else{
-            std::cout << "Bureaucrat name constructor called" << std::endl;
-            _grade = grade;
-        }
-    }
-    catch (GradeTooHighException &e){
-        std::cout << "Invalid grade! Exception caught : " << e.what();
-    }
-    catch (GradeTooLowException &e){
-        std::cout << "Invalid grade! Exception caught : " << e.what();
+    if(grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if(grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else{
+        std::cout << "Bureaucrat name constructor called" << std::endl;
+        _grade = grade;
     }
 }
 

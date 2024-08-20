@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:57:58 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/24 11:54:48 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:46:50 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,12 @@ Form::Form() : _name("Default"), _signed(false), _signGrade(50), _execGrade(50){
 }
 
 Form::Form(std::string name, int signGrade, int execGrade) : _name(name), _signed(false), _signGrade(signGrade), _execGrade(execGrade){
-    try {
-        if(_signGrade < 1)
-            throw Form::GradeTooHighException();
-        else if(_signGrade > 150)
-            throw Form::GradeTooLowException();
-        else{
-            std::cout << "Form name constructor called" << std::endl;
-        }
-    }
-    catch (GradeTooHighException &e){
-        std::cout << "Invalid grade! Exception caught : " << e.what();
-    }catch (GradeTooLowException &e){
-        std::cout << "Invalid grade! Exception caught : " << e.what();
+    if(_signGrade < 1 || _execGrade < 1)
+        throw Form::GradeTooHighException();
+    else if(_signGrade > 150 || _execGrade > 150)
+        throw Form::GradeTooLowException();
+    else{
+        std::cout << "Form name constructor called" << std::endl;
     }
 }
 

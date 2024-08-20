@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:52:23 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/06/24 14:38:17 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:08:56 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void ShrubberyCreationForm::asciiToFile() const{
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     if(checkRequirements(executor) && executor.getGrade() <= getExecGrade())
         asciiToFile();
-    else
-        std::cout << executor.getName() << " can't execute because exec grade is too low!" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
