@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:46:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/20 18:05:09 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:01:46 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(){
     AForm *robot;
     AForm *shrubb;
     AForm *president;
-    robot = someRandomIntern.makeForm("robotomy request", "Bender");
+    robot = someRandomIntern.makeForm("roboomy request", "Bender");
     shrubb = someRandomIntern.makeForm("shrubbery request", "shrubb");
     president = someRandomIntern.makeForm("presidential request", "mr president");
     std::cout << "----------Shrubb test----------" << std::endl;

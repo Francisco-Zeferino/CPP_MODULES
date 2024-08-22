@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:52:23 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/20 18:19:56 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:21:09 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 147, 135), fileName(target + "_shrubbery"){}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), fileName(target + "_shrubbery"){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy){
     *this = copy;

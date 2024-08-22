@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:16:31 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/20 12:25:53 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:29:35 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ AForm *Intern::makeForm(const std::string formName, const std::string target){
     int pos = -1;
     try{
         for(int i = 0; i < 3; i++){
-            if(formNames[i] == formName)
+            if(formNames[i] == formName){
                 pos = i;
+                std::cout << "Intern creates " << formNames[pos] << std::endl;
+            }
         }
         if(pos == -1)
             throw InternNoFormMatchException();

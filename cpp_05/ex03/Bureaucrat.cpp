@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:06:28 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/20 17:19:41 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:12:53 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ Bureaucrat::~Bureaucrat(){
     std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
-Bureaucrat Bureaucrat::operator=(Bureaucrat const &copy){
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &copy){
     std::cout << "Bureaucrat assignation operator called" << std::endl;
     if(this != &copy){
         _grade = copy._grade;

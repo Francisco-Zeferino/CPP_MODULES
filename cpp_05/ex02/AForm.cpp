@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:26:50 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/20 17:06:29 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:19:15 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ AForm::AForm() : _name("Default"), _signed(false), _signGrade(50), _execGrade(50
 }
 
 AForm::AForm(std::string name, int signGrade, int execGrade) : _name(name), _signed(false), _signGrade(signGrade), _execGrade(execGrade){
-    std::cout << "AForm name constructor called" << std::endl;
     if(_signGrade < 1 || _execGrade < 1)
         throw AForm::GradeTooHighException();
     else if(_signGrade > 150 || _execGrade > 150)
