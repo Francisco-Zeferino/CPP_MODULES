@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:27:04 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/26 17:16:34 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:37:23 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,11 @@ void convertFloat(std::string str){
     double toDouble = static_cast<double>(convertedString);
     int toInt = static_cast<int>(convertedString);
     checkValidChar(toChar); 
-    std::cout << "int: " << toInt << std::endl;
     std::cout << std::fixed << std::setprecision(1);
+    if(convertedString <= std::numeric_limits<int>::max() || convertedString >= std::numeric_limits<int>::min())
+        std::cout << "int: " << toInt << std::endl;
+    else
+        std::cout << "int: impossible" << std::endl;
     std::cout << "float: " << convertedString << "f" << std::endl;
     std::cout << "double: " << toDouble << std::endl;
 }
@@ -118,7 +121,10 @@ void convertDouble(std::string str){
     int toInt = static_cast<int>(convertedString);
     checkValidChar(toChar);
     std::cout << std::fixed << std::setprecision(1);
-    std::cout << "int: " << toInt << std::endl;
+    if(convertedString <= std::numeric_limits<int>::max() || convertedString >= std::numeric_limits<int>::min())
+        std::cout << "int: " << toInt << std::endl;
+    else
+        std::cout << "int: impossible" << std::endl;
     std::cout << "float: " << toFloat << "f" << std::endl;
     std::cout << "double: " << convertedString << std::endl;
 }
