@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:27:04 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/26 18:37:23 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/27 11:33:03 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ ConvertType getConvertType(std::string str){
 }
 
 void checkValidChar(char c){
-    if(c >= 0 && c <= 127)
+    if(c >= 0 && c <= 32)
         std::cout << "char: Non displayable" << std::endl;
     else if(isprint(c))
         std::cout << "char: '" << c << "'" << std::endl;
@@ -104,12 +104,15 @@ void convertFloat(std::string str){
     char toChar = static_cast<char>(convertedString);
     double toDouble = static_cast<double>(convertedString);
     int toInt = static_cast<int>(convertedString);
-    checkValidChar(toChar); 
-    std::cout << std::fixed << std::setprecision(1);
-    if(convertedString <= std::numeric_limits<int>::max() || convertedString >= std::numeric_limits<int>::min())
-        std::cout << "int: " << toInt << std::endl;
+    if(convertedString >= 0 && convertedString <= 127)
+        checkValidChar(toChar);
     else
+        checkValidChar(-1);
+    std::cout << std::fixed << std::setprecision(1);
+    if(floor(convertedString) > std::numeric_limits<int>::max() || ceil(convertedString) < std::numeric_limits<int>::min())
         std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << toInt << std::endl;
     std::cout << "float: " << convertedString << "f" << std::endl;
     std::cout << "double: " << toDouble << std::endl;
 }
@@ -119,12 +122,15 @@ void convertDouble(std::string str){
     char toChar = static_cast<char>(convertedString);
     float toFloat = static_cast<float>(convertedString);
     int toInt = static_cast<int>(convertedString);
-    checkValidChar(toChar);
-    std::cout << std::fixed << std::setprecision(1);
-    if(convertedString <= std::numeric_limits<int>::max() || convertedString >= std::numeric_limits<int>::min())
-        std::cout << "int: " << toInt << std::endl;
+    if(convertedString >= 0 && convertedString <= 127)
+        checkValidChar(toChar);
     else
+        checkValidChar(-1);
+    std::cout << std::fixed << std::setprecision(1);
+    if(convertedString > std::numeric_limits<int>::max() || convertedString < std::numeric_limits<int>::min())
         std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << toInt << std::endl;
     std::cout << "float: " << toFloat << "f" << std::endl;
     std::cout << "double: " << convertedString << std::endl;
 }
