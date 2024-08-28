@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 11:41:33 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/27 13:05:51 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:19:38 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Base *generate(void){
         bp = new C();
         break;
     default:
+        std::cout << "No class got instanciated." << std::endl;
         break;
     }
     return bp;
@@ -75,4 +76,6 @@ int main(){
     exp2 = generate();
     identify(*exp);
     identify(exp2);
+    delete exp;
+    delete exp2;
 }

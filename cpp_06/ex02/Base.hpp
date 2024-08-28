@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 11:37:24 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/27 12:13:54 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:22:58 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,5 @@ class Base{
 class A : public Base{};
 class B : public Base{};
 class C : public Base{};
-
-Base *generate(void);
 
 #endif

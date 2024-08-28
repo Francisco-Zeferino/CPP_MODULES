@@ -6,16 +6,16 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:21:17 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/19 18:06:59 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 10:27:33 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 int main(){
-    Array<int> a(10);
+    Array<int> a(1);
 
     a[0] = 1;
     a[1] = 2;
-    std::cout << a[1];
-}
+    std::cout << a[0];
+} 

@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:24:04 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/19 18:12:15 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/20 10:26:26 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <stdlib.h>
 #include <exception>
 
 template<class T>
@@ -31,7 +32,7 @@ class Array{
         class OutOfBoundsException : public std::exception{
             public :
                 virtual const char *what() const throw(){
-                    std::cout << "Index out of bounds" << std::endl; 
+                    return("Index out of bounds"); 
                 }
         };
 };
@@ -72,12 +73,15 @@ Array<T> &Array<T>::operator=(const Array &copy){
 
 template<class T>
 T &Array<T>::operator[](int n){
-    if(n > this->arrSize || n < 0){
-        std::cout << "err";
-        return -1;
+    try{
+        if(n > this->arrSize || n < 0)
+            throw Array<T>::OutOfBoundsException();    
     }
-    else
-        return(this->arr[n]);
+    catch(OutOfBoundsException &e){
+        std::cout << e.what();
+        exit(0);
+    }
+    return(this->arr[n]);
 }
 
 template<class T>
