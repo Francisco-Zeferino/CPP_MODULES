@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:52:13 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/19 09:21:56 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:08:14 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void swap(T &x, T &y){
 
 template <typename T>
 T min(T &x, T &y){
-    return(x > y ? y : x);
+    return(x < y ? x : y);
 }
 
 template <typename T>
