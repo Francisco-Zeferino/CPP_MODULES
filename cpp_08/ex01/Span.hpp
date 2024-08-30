@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 09:57:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/29 19:19:10 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/08/30 17:46:44 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <stdlib.h> 
 #include <vector>
 #include <exception>
+#include <algorithm>
+#include <iterator>
+#include <iostream>
+#include <limits>
+#include <ctime>
 
 class Span{
     private :
@@ -27,12 +32,14 @@ class Span{
         Span(Span &copy);
         ~Span();
         Span &operator=(const Span &copy);
-        void addNumber();
+        void addNumber(int number);
         void shortestSpan();
         void longestSpan();
         class NumberOverflowException : public std::exception {
             const char *what() const throw();
         };
+        void fillVector();
+        void fillRandom();
 };
 
 #endif
