@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 09:57:56 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/30 17:46:44 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:12:45 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Span{
     public :
         Span();
         Span(unsigned int N);
-        Span(Span &copy);
+        Span(const Span &copy);
         ~Span();
         Span &operator=(const Span &copy);
         void addNumber(int number);
@@ -39,7 +39,6 @@ class Span{
             const char *what() const throw();
         };
         void fillVector();
-        void fillRandom();
 };
 
 #endif

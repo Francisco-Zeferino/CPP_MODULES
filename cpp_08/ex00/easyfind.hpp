@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:03:11 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/29 09:18:58 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:21:18 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 #include <vector>
 #include <iostream>
 #include <exception>
+#include <algorithm>
+#include <list>
+#include <deque>
 
 template <typename T>
-void easyfind(std::vector<T> tVector, int y){
-    int flag = -1;
-    for(int i = 0; static_cast<unsigned int>(i) < tVector.size(); i++){
-        if(tVector[i] == y){
-            std::cout << "Occurence found!" << std::endl;
-            flag = 1;
-        }
-    }
-    if(flag == -1)
-        throw std::invalid_argument("No match found");
+void easyfind(T containerT, int y){
+    typename T::iterator it;
+    it = std::find(containerT.begin(), containerT.end(), y);
+    if(*it == y)
+        std::cout << "Occurence found!" << std::endl;
+    else
+        throw std::out_of_range("No match found!");
 };
 
 #endif

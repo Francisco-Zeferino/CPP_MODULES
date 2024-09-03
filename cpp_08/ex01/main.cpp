@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 16:21:43 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/30 17:49:48 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:33:55 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 int main(){
     Span span(5);
+    Span span2(3);
     span.fillVector();
     span.longestSpan();
     span.shortestSpan();
+    try{
+        span2.addNumber(10);
+        span2.addNumber(7);
+        span2.addNumber(24);
+        span2.addNumber(30);
+    }catch(std::exception &e){
+        std::cout << e.what();
+    }
 }

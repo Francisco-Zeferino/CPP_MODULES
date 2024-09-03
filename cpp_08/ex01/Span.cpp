@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 10:03:38 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/08/30 17:48:28 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:12:29 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ Span::Span(){
 
 Span::Span(unsigned int N){
     this->N = N;
+}
+
+Span::Span(const Span &copy){
+    *this = copy;
+}
+
+Span &Span::operator=(const Span &copy){
+    if(this != &copy){
+        N = copy.N;
+        numVector = copy.numVector;
+    }
+    return(*this);
 }
 
 Span::~Span(){}
@@ -50,10 +62,6 @@ void Span::longestSpan(){
     int max = *std::max_element(numVector.begin(), numVector.end());
     int min = *std::min_element(numVector.begin(), numVector.end());
     std::cout << max - min << std::endl;
-}
-
-void Span::fillRandom(){
-    numVector.push_back(rand() % 100);
 }
 
 void Span::fillVector(){
