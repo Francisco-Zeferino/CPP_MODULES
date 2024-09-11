@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:54:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/10 18:27:05 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:33:40 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,15 @@ void BitcoinExchange::parseDataBase(){
   while(std::getline(dbFile, dbLine)){
     size_t comma = dbLine.find_first_of(",");
     if(comma != std::string::npos){
-      btcDate = dbLine.substr(0, (comma - 1));
+      btcDate = dbLine.substr(0, comma);
       btcValueLine = dbLine.substr((comma + 1), dbLine.length() - 1);
       btcValue = strtof(btcValueLine.c_str(), NULL);
       dbContainer.insert(std::make_pair(btcDate, btcValue));
     }
   }
-  //std::map<std::string, float>::iterator it = dbContainer.begin();
-  //while (it != dbContainer.end()) {
-  //    std::cout << "Key: " << it->first
-  //    << ", Value: " << it->second << std::endl;
-  //    ++it;
-  //  }
 }
 
-void BitcoinExchange::dateValidation(){
+bool BitcoinExchange::dateValidation(std::string userBtcDate){
   size_t hyphen;
   std::string day;
   std::string month;
@@ -58,27 +52,41 @@ void BitcoinExchange::dateValidation(){
   day = userBtcDate.substr((hyphen + 1), userBtcDate.length() - 1);
   month = userBtcDate.substr((userBtcDate.find_first_of("-") + 1), (userBtcDate.length() - hyphen) - 1);
   year = userBtcDate.substr(0, (userBtcDate.find_first_of("-")));
-  if(atoi(month.c_str()) < 1 || atoi(month.c_str()) > 12)
+  if(atoi(month.c_str()) < 1 || atoi(month.c_str()) > 12){
     std::cout << "Invalid month" << std::endl;
-  if(atoi(day.c_str()) < 1 || atoi(day.c_str()) > 31)
-    std::cout << "Invalid day" << std::endl;
-  if(atoi(year.c_str()) > 2024)
-    std::cout << "Invalid year" << std::endl;
-  if(atoi(month.c_str()) == 2){
-    if(atoi(day.c_str()) > 29)
-      std::cout << "Invalid day" << std::endl;
+    return false;
   }
+  if(atoi(day.c_str()) < 1 || atoi(day.c_str()) > 31){
+    std::cout << "Invalid day" << std::endl;
+    return false;
+  }
+  if(atoi(year.c_str()) > 2024){
+    std::cout << "Invalid year" << std::endl;
+    return false;
+  }
+  if(atoi(month.c_str()) == 2){
+    if(atoi(day.c_str()) > 29){
+      std::cout << "Invalid day" << std::endl;
+      return false;
+    }
+  }
+  return true;
 }
 
-void BitcoinExchange::bitcoinValueValidation(std::string valueLine){
+bool BitcoinExchange::bitcoinValueValidation(std::string valueLine){
     char *end;
-    std::cout << valueLine << std::endl;
-    userBtcValue = strtof(valueLine.c_str(), &end);
-    if(end == '\0' || userBtcValue < 0 || errno == ERANGE)
-      std::cout << "Invalid input: " << userBtcValue << std::endl;
+    float userBtcValueLine; 
+    userBtcValueLine = strtof(valueLine.c_str(), &end);
+    if(*end != '\0' || userBtcValueLine < 0 || errno == ERANGE){
+      std::cout << "Invalid input: " << userBtcValueLine << std::endl;
+      return false;
+    }
+    userBtcValue = userBtcValueLine;
+    return true;
 }
 
 void BitcoinExchange::fileParse(){
+  std::string userBtcDate;
   std::string fileLine;
   std::string userBtcValueLine;
   while(std::getline(btcFile, fileLine)){
@@ -87,11 +95,20 @@ void BitcoinExchange::fileParse(){
     if(ref != std::string::npos && ref == limiter){
       userBtcDate = fileLine.substr(0, (ref - 1));
       userBtcValueLine = fileLine.substr((ref + 1), fileLine.length() - 1);
-      bitcoinValueValidation(userBtcValueLine);
-      dateValidation();
+      exchangeBitcoin(userBtcValueLine, userBtcDate);
     }
     else
       std::cout << "Invalid format. Usage : Y-M-D | VALUE" << std::endl;
+  }
+}
+
+void BitcoinExchange::exchangeBitcoin(std::string userBtcValueLine, std::string userBtcDate){
+  std::map<std::string, float>::iterator it;
+  if(bitcoinValueValidation(userBtcValueLine) && dateValidation(userBtcDate)){
+    it = dbContainer.find(userBtcDate);
+    if(it != dbContainer.end()){
+      std::cout << it->first << "=> " << it->second << " => " << it->second * userBtcValue << std::endl;
+    }
   }
 }
 

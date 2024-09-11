@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:54:15 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/10 17:53:50 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:09:50 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 class BitcoinExchange {
 private:
-  std::string userBtcDate;
   float userBtcValue;
   std::ifstream btcFile;
   std::map<std::string, float> dbContainer;
@@ -32,10 +31,11 @@ public:
   ~BitcoinExchange();
   BitcoinExchange &operator=(const BitcoinExchange &copy);
   void fileParse();
-  void bitcoinValueValidation(std::string valueLine);
+  bool bitcoinValueValidation(std::string valueLine);
   void setFileStream(std::string fileName);
   void parseDataBase();
-  void dateValidation();
+  bool dateValidation(std::string userBtcDate);
+  void exchangeBitcoin(std::string userBtcValueLine, std::string userBtcDate);
 };
 
 void userInputParse(std::string fileName);
