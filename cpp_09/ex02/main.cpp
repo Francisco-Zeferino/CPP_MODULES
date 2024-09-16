@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:47:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/13 18:13:56 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:37:24 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int main(int ac, char **av){
     PmergeMe a;
-    if(ac > 3){
+    if(ac >= 3)
         a.parseData(av);
-    }
     else
         std::cerr << "Not enough arguments." << std::endl;
 }
