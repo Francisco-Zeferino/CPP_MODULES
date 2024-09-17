@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:47:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/16 11:37:24 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:36:52 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int main(int ac, char **av){
-    PmergeMe a;
     if(ac >= 3)
-        a.parseData(av);
+        parseData(av);
     else
         std::cerr << "Not enough arguments." << std::endl;
 }

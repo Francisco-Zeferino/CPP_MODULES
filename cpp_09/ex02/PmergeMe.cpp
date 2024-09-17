@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:46:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:01:40 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/17 20:09:44 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,19 @@ void storeData(std::string arg, std::deque<int> &dqContainer, std::vector<int> &
     dqContainer.push_back(atoi(arg.c_str()));
 }
 
-void sortVector(std::vector<int> &vecContainer){
-    std::vector<int> min, max;
+void selectMaxMin(std::vector<int> &vecContainer, std::vector<int> &min, std::vector<int> &max){
+    (void)min;
+    (void)max;
     std::vector<int>::iterator it;
     std::vector<int>::iterator tmp;
-    it = vecContainer.begin();
-    tmp = it++;
-    if(*it < *tmp){
-        min.push_back(*it);
-        max.push_back(*tmp);
-    }
-    else{
-        min.push_back(*tmp);
-        max.push_back(*it);
-    }
-    vecContainer.erase(it);
-    vecContainer.erase(tmp);
-    sortVector(vecContainer);
+    std::vector<std::pair<int, int > > vectorPairs;
+    vectorPairs = setPairs(vecContainer, vectorPairs);
+}
+
+void sortVector(std::vector<int> &vecContainer){
+    std::vector<int> min, max;
+    selectMaxMin(vecContainer, min, max);
+    //sortVector(min);
 }
 
 bool validArgument(std::string arg, std::deque<int> &dqContainer, std::vector<int> &vecContainer){
