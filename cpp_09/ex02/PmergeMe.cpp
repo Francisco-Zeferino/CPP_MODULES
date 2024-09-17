@@ -6,40 +6,37 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:46:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:34:04 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:01:40 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void PmergeMe::storeData(std::string arg){
+void storeData(std::string arg, std::deque<int> &dqContainer, std::vector<int> &vecContainer){
     vecContainer.push_back(atoi(arg.c_str()));
     dqContainer.push_back(atoi(arg.c_str()));
 }
 
-void PmergeMe::setupAlgorithm(){
-    if(vecContainer.size() % 2 == 0)
-        odd = false;    
-    else{
-        odd = true;
-        stragglerVector = vecContainer.back();
-        stragglerDeque = dqContainer.back();
-        vecContainer.pop_back();
-        dqContainer.pop_back();
-    }
-}
-
-void PmergeMe::pairSetup(){
+void sortVector(std::vector<int> &vecContainer){
+    std::vector<int> min, max;
     std::vector<int>::iterator it;
+    std::vector<int>::iterator tmp;
     it = vecContainer.begin();
-    while(it != vecContainer.end()){
-        vectorPairs.push_back(std::make_pair(*it, *++it));
-        it++;   
+    tmp = it++;
+    if(*it < *tmp){
+        min.push_back(*it);
+        max.push_back(*tmp);
     }
-    std::cout << stragglerVector << std::endl;
+    else{
+        min.push_back(*tmp);
+        max.push_back(*it);
+    }
+    vecContainer.erase(it);
+    vecContainer.erase(tmp);
+    sortVector(vecContainer);
 }
 
-bool PmergeMe::validArgument(std::string arg){
+bool validArgument(std::string arg, std::deque<int> &dqContainer, std::vector<int> &vecContainer){
     int i = 0;
     while (arg[i]){
         if(!isdigit(arg[i])){
@@ -52,30 +49,19 @@ bool PmergeMe::validArgument(std::string arg){
         }
         i++;
     }
-    storeData(arg);
+    storeData(arg, dqContainer, vecContainer);
     return true;
 }
 
-void PmergeMe::parseData(char **av){
+void parseData(char **av){
     int i = 1;
-    std::vector<int>::iterator it;
-    std::deque<int>::iterator dqIt;
+    std::deque<int> dqContainer;
+    std::vector<int> vecContainer;
+    std::vector<std::pair<int, int> >::iterator it;
     while(av[i]){
-        if(!validArgument(static_cast<std::string>(av[i])))
+        if(!validArgument(static_cast<std::string>(av[i]), dqContainer, vecContainer))
             return ;
         i++;
     }
-    setupAlgorithm();
-    pairSetup();
-    // it = vecContainer.begin();
-    // dqIt = dqContainer.begin();
-    // while(it != vecContainer.end()){
-    //     std::cout << "Vector : " << *it << "\t";
-    //     it++;
-    // }
-    // std::cout << std::endl;
-    // while(dqIt != dqContainer.end()){
-    //     std::cout << "Deque: " << *dqIt << '\t';
-    //     dqIt++;
-    // }
+    sortVector(vecContainer);
 }
