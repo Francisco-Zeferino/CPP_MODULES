@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:02:16 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/12 15:44:24 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:05:00 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,17 @@ void RPN::reversePolishNotation(){
     it = rpnList.begin();
     tmp = it;
     token = findToken(it);
-    result = calculate(*it, *++tmp, *token);
-    convertedResult << result;
+    try{
+        if(token != rpnList.end()){
+            result = calculate(*it, *++tmp, *token);
+            convertedResult << result;
+        }else{
+            throw std::invalid_argument("No operand inserted\n");
+        }        
+    }catch(std::exception &e){
+        std::cout << e.what();
+        return ;
+    }
     while(it != rpnList.end()){
         it = token;
         if(token != rpnList.end() && ++it != rpnList.end()){
@@ -86,6 +95,10 @@ bool validToken(char c){
 void RPN::parse(std::string arg){
     size_t i;
     std::string token;
+    if(arg.size() < 2){
+        std::cout << "Invalid arguments" << std::endl;
+        return ;
+    }
     while((i = arg.find(" ")) != std::string::npos){
         token = arg.substr(0, i);
         std::find_if(arg.begin(), arg.end(), validToken);
@@ -93,14 +106,17 @@ void RPN::parse(std::string arg){
             rpnList.push_back(token);
             arg.erase(0, i + 1);
         }
-        else
+        else{
+            std::cout << "Invalid arguments" << std::endl;
             return;
+        }
     }
     if(arg.size() < 2 && (validToken(arg[0]) || isdigit(arg[0]))){
         rpnList.push_back(arg);
         reversePolishNotation();
     }
     else{
+        std::cout << "Invalid arguments" << std::endl;
         return;
     }
 }
