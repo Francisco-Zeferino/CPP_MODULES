@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:46:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/19 17:33:23 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 20:57:02 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void selectMaxMinVector(std::vector<int> &vecContainer, std::vector<int> &min, s
     std::vector<std::pair<int, int > >::iterator pit;
 
     vectorPairs = setPairs(vecContainer, vectorPairs);
+    std::vector<std::pair<int, int > >::iterator cona;
     pit = vectorPairs.begin();
     while(pit != vectorPairs.end()){
         min.push_back(pit->first);
@@ -111,7 +112,20 @@ void parseData(char **av){
             return ;
         i++;
     }
+    std::cout << "Vector unsorted : ";
+    showData(vecContainer);
+    clock_t start = clock();
     sortVector(vecContainer);
+    clock_t end = clock();
+    std::cout << "Vector sorted : ";
+    showData(vecContainer);
+    std::cout << "Vector sort time: " << (double)(end - start) / CLOCKS_PER_SEC * 1000 << std::endl;
+    std::cout << "Deque unsorted : ";
+    showData(dqContainer);
+    start = clock();
     sortDeque(dqContainer);
-    dqit = dqContainer.begin();
+    end = clock();
+    std::cout << "Deque sorted : ";
+    showData(dqContainer);
+    std::cout << "Deque sort time: " << (double)(end - start) / CLOCKS_PER_SEC * 1000 << std::endl;
 }
