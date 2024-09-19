@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:46:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/19 17:32:49 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:33:23 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,4 @@ void parseData(char **av){
     sortVector(vecContainer);
     sortDeque(dqContainer);
     dqit = dqContainer.begin();
-    while(dqit != dqContainer.end()){
-        std::cout << *dqit << " ";
-        dqit++;
-    }
-    std::cout << std::endl;
 }
