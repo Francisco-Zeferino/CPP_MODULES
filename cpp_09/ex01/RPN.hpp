@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:03:18 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/18 14:56:08 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:52:25 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class RPN{
         void parse(std::string arg);
         void reversePolishNotation();
         std::list<std::string>::iterator findToken(std::list<std::string>::iterator it);
-        float calculate(std::string val1, std::string val2, std::string token);
+        void calculate(std::list<int> &nums, std::string token);
 };
 
 #endif

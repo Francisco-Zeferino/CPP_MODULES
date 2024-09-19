@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:54:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/11 11:33:40 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:22:14 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,24 @@ bool BitcoinExchange::dateValidation(std::string userBtcDate){
   std::string day;
   std::string month;
   std::string year;
+  if(userBtcDate.size() != 10){
+    std::cout << "Invalid date = " << userBtcDate << std::endl;
+    return false;
+  }
   hyphen = userBtcDate.find_last_of("-");
   day = userBtcDate.substr((hyphen + 1), userBtcDate.length() - 1);
   month = userBtcDate.substr((userBtcDate.find_first_of("-") + 1), (userBtcDate.length() - hyphen) - 1);
   year = userBtcDate.substr(0, (userBtcDate.find_first_of("-")));
-  if(atoi(month.c_str()) < 1 || atoi(month.c_str()) > 12){
-    std::cout << "Invalid month" << std::endl;
+  if(month.size() != 2 || atoi(month.c_str()) < 1 || atoi(month.c_str()) > 12){
+    std::cout << "Invalid month = " << month << std::endl;
     return false;
   }
-  if(atoi(day.c_str()) < 1 || atoi(day.c_str()) > 31){
-    std::cout << "Invalid day" << std::endl;
+  if(day.size() != 2 || atoi(day.c_str()) < 1 || atoi(day.c_str()) > 31){
+    std::cout << "Invalid day = " << day << std::endl;
     return false;
   }
-  if(atoi(year.c_str()) > 2024){
-    std::cout << "Invalid year" << std::endl;
+  if(year.size() != 4 || atoi(year.c_str()) > 2024 || atoi(year.c_str()) < 0){
+    std::cout << "Invalid year = " << month << std::endl;
     return false;
   }
   if(atoi(month.c_str()) == 2){
@@ -107,7 +111,16 @@ void BitcoinExchange::exchangeBitcoin(std::string userBtcValueLine, std::string 
   if(bitcoinValueValidation(userBtcValueLine) && dateValidation(userBtcDate)){
     it = dbContainer.find(userBtcDate);
     if(it != dbContainer.end()){
-      std::cout << it->first << "=> " << it->second << " => " << it->second * userBtcValue << std::endl;
+      std::cout << it->first << " => " << it->second << " => " << it->second * userBtcValue << std::endl;
+    }
+    else{
+      it = dbContainer.lower_bound(userBtcDate);
+      if(it == dbContainer.end()){
+        std::cout << "No close date found" << std::endl;
+        return ;
+      }
+      else
+        std::cout << it->first << " => " << it->second << " => " << it->second * userBtcValue << std::endl;
     }
   }
 }

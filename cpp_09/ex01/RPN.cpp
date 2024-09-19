@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:02:16 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/18 15:05:00 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:07:22 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ RPN &RPN::operator=(const RPN &copy){
     return(*this);
 }
 
+bool validToken(char c){
+    if(c == '+' || c == '-' || c == '*' || c == '/')
+        return true;
+    return false;
+}
+
 std::list<std::string>::iterator RPN::findToken(std::list<std::string>::iterator it){
     while(it != rpnList.end()){
         if(*it == "+" || *it == "-" || *it == "/" || *it == "*")
@@ -34,62 +40,39 @@ std::list<std::string>::iterator RPN::findToken(std::list<std::string>::iterator
     return rpnList.end();
 }
 
-float RPN::calculate(std::string val1, std::string val2, std::string token){
+void RPN::calculate(std::list<int> &nums, std::string token){
+    int result = 0;
+    int val2 = nums.back();
+    nums.pop_back();
+    int val1 = nums.back();
+    nums.pop_back();
     if(token == "+")
-        return atoi(val1.c_str()) + atoi(val2.c_str());
-    else if(token == "-")
-        return atoi(val1.c_str()) - atoi(val2.c_str());
-    else if(token == "*")
-        return atoi(val1.c_str()) * atoi(val2.c_str());
-    else if(token == "/"){
-        if(val2 == "0")
-            throw std::invalid_argument("Can't divide by zero\n");
-        return atoi(val1.c_str()) / atoi(val2.c_str());
+        result =  val1 + val2;
+    if(token == "-")
+        result =  val1 - val2;
+    if(token == "*")
+        result =  val1 * val2;
+    if(token == "/"){
+        if(val2 == 0)
+            throw std::invalid_argument("Division by 0");
+        result =  val1 / val2;
     }
-    else
-        return -1;
+    nums.push_back(result);
 }
 
 void RPN::reversePolishNotation(){
-    std::list<std::string>::iterator it;
-    std::list<std::string>::iterator tmp;
     std::list<std::string>::iterator token;
-    int result;
-    it = rpnList.begin();
-    tmp = it;
-    token = findToken(it);
-    try{
-        if(token != rpnList.end()){
-            result = calculate(*it, *++tmp, *token);
-            convertedResult << result;
-        }else{
-            throw std::invalid_argument("No operand inserted\n");
-        }        
-    }catch(std::exception &e){
-        std::cout << e.what();
-        return ;
+    std::list<int> nums;
+    while(rpnList.size() >= 1){
+        if(!validToken((*(rpnList.begin()))[0]))
+            nums.push_back(atoi((*(rpnList.begin())).c_str()));
+        else
+            calculate(nums ,*rpnList.begin());
+        rpnList.pop_front();
     }
-    while(it != rpnList.end()){
-        it = token;
-        if(token != rpnList.end() && ++it != rpnList.end()){
-            try{
-                token = findToken(it);
-                result = calculate(convertedResult.str(), *it, *token);
-                convertedResult.str("");
-                convertedResult << result;    
-            }catch(std::exception &e){
-                std::cout << e.what();
-                return;
-            }
-        }
-    }
-    std::cout << result << std::endl;
-}
-
-bool validToken(char c){
-    if(c == '+' || c == '-' || c == '*' || c == '/')
-        return true;
-    return false;
+    if(nums.size() != 1)
+        throw std::invalid_argument("Invalid equation");
+    std::cout << nums.front() << std::endl;
 }
 
 void RPN::parse(std::string arg){
@@ -113,7 +96,12 @@ void RPN::parse(std::string arg){
     }
     if(arg.size() < 2 && (validToken(arg[0]) || isdigit(arg[0]))){
         rpnList.push_back(arg);
-        reversePolishNotation();
+        try{
+            reversePolishNotation();
+        }catch(std::exception &e){
+            std::cout << e.what() << std::endl;
+            return ;
+        }
     }
     else{
         std::cout << "Invalid arguments" << std::endl;

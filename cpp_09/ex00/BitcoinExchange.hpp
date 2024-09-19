@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- < ffilipe-@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:54:15 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/11 11:09:50 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:25:47 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 #include <map>
 
 class BitcoinExchange {
@@ -26,7 +27,6 @@ private:
   std::map<std::string, float> dbContainer;
 public:
   BitcoinExchange();
-  BitcoinExchange(std::ifstream file);
   BitcoinExchange(const BitcoinExchange &copy);
   ~BitcoinExchange();
   BitcoinExchange &operator=(const BitcoinExchange &copy);
