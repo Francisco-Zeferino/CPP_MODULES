@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:54:20 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/19 15:22:14 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:29:38 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) { *this = copy; }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy) {
   if (this != &copy) {
+    userBtcValue = copy.userBtcValue;
+    dbContainer = copy.dbContainer;
   }
   return (*this);
 }
