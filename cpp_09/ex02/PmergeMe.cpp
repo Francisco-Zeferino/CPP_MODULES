@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffilipe- <ffilipe-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:46:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2024/09/18 15:54:48 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:32:49 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void parseData(char **av){
     int i = 1;
     std::deque<int> dqContainer;
     std::vector<int> vecContainer;
-    //std::vector<std::pair<int, int> >::iterator it;
     std::vector<int>::iterator vecit;
     std::deque<int>::iterator dqit;
     while(av[i]){
@@ -119,11 +118,5 @@ void parseData(char **av){
         std::cout << *dqit << " ";
         dqit++;
     }
-    
-    // vecit = vecContainer.begin();
-    // while(vecit != vecContainer.end()){
-    //     std::cout << *vecit << " ";
-    //     vecit++;
-    // }
     std::cout << std::endl;
 }
